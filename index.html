@@ -861,6 +861,73 @@ footer a { color: var(--accent); }
 /* ─── ANIMATE SECTION CHANGE ────────────────────────────── */
 .section.active { animation: fadeIn .25s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ─── QUIZ ENGINE ────────────────────────────────────────── */
+.quiz-screen { display: none; }
+.quiz-screen.active { display: block; }
+.quiz-start-wrap { max-width: 640px; margin: 0 auto; }
+.cat-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 0; }
+.cat-chip { padding: 8px 16px; border-radius: 20px; border: 2px solid var(--border); background: var(--card); cursor: pointer; font-size: 13px; font-weight: 600; transition: all .2s; }
+.cat-chip .chip-count { opacity: .7; }
+.cat-chip[data-cat="A"].active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.cat-chip[data-cat="B"].active { background: var(--orange); border-color: var(--orange); color: #fff; }
+.cat-chip[data-cat="C"].active { background: var(--green); border-color: var(--green); color: #fff; }
+.cat-chip[data-cat="D"].active { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+.count-btns { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 0; }
+.count-btn { padding: 10px 28px; border-radius: 8px; border: 2px solid var(--border); background: var(--card); cursor: pointer; font-size: 16px; font-weight: 700; transition: all .2s; }
+.count-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+.quiz-start-btn { width: 100%; padding: 16px; background: linear-gradient(135deg,#4c1d95,#7c3aed); color: #fff; border: none; border-radius: var(--radius); font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: opacity .2s; }
+.quiz-start-btn:hover:not(:disabled) { opacity: .88; }
+.quiz-start-btn:disabled { opacity: .4; cursor: not-allowed; }
+.quiz-progress-wrap { background: var(--border); border-radius: 4px; height: 6px; margin-bottom: 14px; overflow: hidden; }
+.quiz-progress-bar { height: 6px; background: var(--accent); border-radius: 4px; transition: width .4s ease; }
+.quiz-counter { font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; margin-bottom: 10px; }
+.quiz-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.q-badge { padding: 3px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; color: #fff; }
+.q-badge-A { background: var(--accent); }
+.q-badge-B { background: var(--orange); }
+.q-badge-C { background: var(--green); }
+.q-badge-D { background: #7c3aed; }
+.q-badge-type { background: var(--muted); }
+.quiz-question { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.55; margin-bottom: 20px; }
+.quiz-opts { display: flex; flex-direction: column; gap: 10px; }
+.opt-btn { width: 100%; padding: 13px 18px; border: 2px solid var(--border); border-radius: var(--radius-sm); background: var(--card); text-align: left; font-size: 14px; cursor: pointer; transition: all .2s; line-height: 1.4; }
+.opt-btn:hover:not(:disabled) { border-color: var(--accent); background: #e8f7fc; }
+.opt-btn.correct { border-color: var(--green) !important; background: #ecfdf5 !important; color: #065f46; font-weight: 700; }
+.opt-btn.wrong { border-color: var(--red) !important; background: #fef2f2 !important; color: #991b1b; }
+.opt-btn:disabled { cursor: default; }
+.explain-panel { margin-top: 16px; padding: 14px 18px; background: var(--orange-lt); border-left: 4px solid var(--orange); border-radius: var(--radius-sm); display: none; }
+.explain-panel.show { display: block; animation: fadeIn .3s ease; }
+.explain-label { font-weight: 700; color: var(--orange); font-size: 13px; margin-bottom: 6px; }
+.quiz-next-btn { width: 100%; margin-top: 14px; padding: 13px; background: var(--primary); color: #fff; border: none; border-radius: var(--radius-sm); font-size: 15px; font-weight: 700; cursor: pointer; display: none; transition: background .2s; }
+.quiz-next-btn.show { display: block; }
+.quiz-next-btn:hover { background: var(--navy); }
+.score-wrap { text-align: center; padding: 36px 16px 24px; }
+.score-circle { width: 140px; height: 140px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; border: 10px solid var(--border); }
+.score-circle.great { border-color: var(--green); }
+.score-circle.ok    { border-color: var(--orange); }
+.score-circle.poor  { border-color: var(--red); }
+.score-num { font-size: 30px; font-weight: 900; color: var(--primary); }
+.score-pct { font-size: 13px; color: var(--muted); }
+.score-grade { font-size: 22px; font-weight: 800; margin: 8px 0 4px; }
+.cat-breakdown { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin: 24px 0; }
+.cb-item { background: var(--card); border-radius: var(--radius-sm); padding: 14px 10px; text-align: center; box-shadow: var(--shadow); }
+.cb-score { font-size: 20px; font-weight: 800; color: var(--primary); }
+.cb-name { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.3; }
+.wrong-list { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+.wrong-item { background: var(--card); border-radius: var(--radius-sm); padding: 16px; border-left: 4px solid var(--red); box-shadow: var(--shadow); }
+.wi-q { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+.wi-your { color: var(--red); font-size: 13px; }
+.wi-ans  { color: var(--green); font-weight: 700; font-size: 13px; margin-top: 4px; }
+.wi-exp  { font-size: 12px; color: var(--muted); margin-top: 6px; font-style: italic; }
+.quiz-reset-btn { margin-top: 28px; padding: 14px 40px; background: linear-gradient(135deg,#4c1d95,#7c3aed); color: #fff; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 700; cursor: pointer; transition: opacity .2s; }
+.quiz-reset-btn:hover { opacity: .88; }
+@media (max-width: 768px) {
+  .cat-breakdown { grid-template-columns: repeat(2,1fr); }
+  .quiz-question  { font-size: 15px; }
+  .opt-btn        { font-size: 13px; padding: 11px 14px; }
+  .count-btn      { padding: 10px 18px; font-size: 14px; }
+}
 </style>
 </head>
 <body>
@@ -876,7 +943,7 @@ footer a { color: var(--accent); }
       <div class="header-sub">Quickwin 45 phút · 3 phần × 15 phút</div>
     </div>
   </div>
-  <div class="header-badge">📚 Phòng Nghiệp vụ Đào tạo · T5/2026</div>
+  <div class="header-badge">✏️ Biên soạn: <strong>Vưu Hồng Châu</strong> · T5/2026</div>
 </header>
 
 <!-- ══════════════════════════════════════════════════════════
@@ -897,6 +964,11 @@ footer a { color: var(--accent); }
     <span class="tab-num">3</span>
     <span>🔧 Công cụ hỗ trợ</span>
     <span class="tab-min">· 15 phút</span>
+  </button>
+  <button class="tab-btn" data-target="s4" onclick="switchTab(this)">
+    <span class="tab-num">4</span>
+    <span>🎯 Ôn tập</span>
+    <span class="tab-min">· Thực hành</span>
   </button>
 </nav>
 
@@ -1726,6 +1798,111 @@ footer a { color: var(--accent); }
 
 </section><!-- /s3 -->
 
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 4: ÔN TẬP & THỰC HÀNH
+     ══════════════════════════════════════════════════════════ -->
+<section id="s4" class="section">
+
+  <div class="hero" style="background:linear-gradient(135deg,#4c1d95 0%,#6d28d9 60%,#7c3aed 100%);padding:36px 40px">
+    <div class="hero-badge" style="background:rgba(255,255,255,.15)">🎯 Tổng kết chương trình</div>
+    <div class="hero-title">Ôn tập &amp; Thực hành</div>
+    <div class="hero-sub">100 câu hỏi · 4 chủ đề · Xáo ngẫu nhiên mỗi lần · Giải thích ngay sau mỗi câu</div>
+  </div>
+
+  <div style="max-width:900px;margin:0 auto">
+
+  <!-- START SCREEN -->
+  <div id="quiz-start" class="quiz-screen active" style="padding:28px 0 40px">
+    <div class="quiz-start-wrap">
+      <div class="card" style="padding:28px">
+        <div class="section-heading">⚙️ Chọn chế độ ôn tập</div>
+
+        <div class="sub-heading-sm" style="margin-top:20px;margin-bottom:8px">📚 Chủ đề (chọn 1 hoặc nhiều)</div>
+        <div class="cat-chips">
+          <button class="cat-chip active" data-cat="A" onclick="toggleCat(this)">📷 Tính năng Camera <span class="chip-count">· 25 câu</span></button>
+          <button class="cat-chip active" data-cat="B" onclick="toggleCat(this)">💰 Gói cước <span class="chip-count">· 30 câu</span></button>
+          <button class="cat-chip active" data-cat="C" onclick="toggleCat(this)">🔧 Công cụ <span class="chip-count">· 20 câu</span></button>
+          <button class="cat-chip active" data-cat="D" onclick="toggleCat(this)">🎭 Tình huống <span class="chip-count">· 25 câu</span></button>
+        </div>
+
+        <div class="sub-heading-sm" style="margin-top:20px;margin-bottom:8px">🔢 Số câu muốn làm</div>
+        <div class="count-btns">
+          <button class="count-btn" data-count="20" onclick="selectCount(this)">20 câu</button>
+          <button class="count-btn" data-count="50" onclick="selectCount(this)">50 câu</button>
+          <button class="count-btn" data-count="100" onclick="selectCount(this)">Tất cả 100</button>
+        </div>
+        <div id="count-hint" style="font-size:12px;color:var(--muted);margin-top:8px">← Chọn số câu để kích hoạt nút bắt đầu</div>
+
+        <button class="quiz-start-btn" id="quiz-start-btn" onclick="startQuiz()" disabled>🎲 Bắt đầu ngẫu nhiên</button>
+      </div>
+
+      <div class="card" style="margin-top:16px;padding:24px">
+        <div class="sub-heading-sm" style="margin-bottom:12px">📊 Ngân hàng câu hỏi</div>
+        <table class="ref-table" style="width:100%;font-size:13px">
+          <thead><tr><th>Chủ đề</th><th>Trắc nghiệm</th><th>Đúng / Sai</th><th>Tình huống</th><th>Tổng</th></tr></thead>
+          <tbody>
+            <tr><td>📷 Tính năng Camera</td><td>20</td><td>5</td><td>0</td><td><strong>25</strong></td></tr>
+            <tr><td>💰 Gói cước</td><td>20</td><td>5</td><td>5</td><td><strong>30</strong></td></tr>
+            <tr><td>🔧 Công cụ</td><td>15</td><td>0</td><td>5</td><td><strong>20</strong></td></tr>
+            <tr><td>🎭 Tình huống thực chiến</td><td>0</td><td>5</td><td>20</td><td><strong>25</strong></td></tr>
+            <tr style="background:var(--bg);font-weight:700"><td>Tổng</td><td>55</td><td>15</td><td>30</td><td>100</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div><!-- /quiz-start -->
+
+  <!-- RUN SCREEN -->
+  <div id="quiz-run" class="quiz-screen" style="padding:24px 0 40px">
+    <div class="quiz-start-wrap">
+      <div class="quiz-counter">
+        <span id="q-counter">Câu 1 / 20</span>
+        <span id="q-score-live" style="color:var(--green);font-weight:700">✅ 0 đúng</span>
+      </div>
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-bar" id="q-progress" style="width:0%"></div>
+      </div>
+      <div class="card" style="padding:26px">
+        <div class="quiz-badges" id="q-badges"></div>
+        <div class="quiz-question" id="q-text"></div>
+        <div class="quiz-opts" id="q-opts"></div>
+        <div class="explain-panel" id="q-explain">
+          <div class="explain-label" id="q-explain-label"></div>
+          <div id="q-explain-text"></div>
+        </div>
+        <button class="quiz-next-btn" id="q-next" onclick="nextQuestion()">Câu tiếp theo →</button>
+      </div>
+    </div>
+  </div><!-- /quiz-run -->
+
+  <!-- END SCREEN -->
+  <div id="quiz-end" class="quiz-screen" style="padding:24px 0 40px">
+    <div class="score-wrap">
+      <div class="score-circle" id="score-circle">
+        <div>
+          <div class="score-num" id="score-num">-</div>
+          <div class="score-pct" id="score-pct"></div>
+        </div>
+      </div>
+      <div class="score-grade" id="score-grade"></div>
+      <div style="color:var(--muted);font-size:14px;margin-top:4px" id="score-msg"></div>
+    </div>
+    <div style="max-width:640px;margin:0 auto;padding:0 16px 40px">
+      <div class="sub-heading">📊 Kết quả theo chủ đề</div>
+      <div class="cat-breakdown" id="cat-breakdown"></div>
+      <div id="wrong-section">
+        <div class="sub-heading" id="wrong-heading"></div>
+        <div class="wrong-list" id="wrong-list"></div>
+      </div>
+      <div style="text-align:center">
+        <button class="quiz-reset-btn" onclick="resetQuiz()">🔄 Làm bài mới</button>
+      </div>
+    </div>
+  </div><!-- /quiz-end -->
+
+  </div><!-- /max-width -->
+</section><!-- /s4 -->
+
 </main>
 
 <!-- ══════════════════════════════════════════════════════════
@@ -1734,7 +1911,7 @@ footer a { color: var(--accent); }
 <footer>
   <div>
     <div style="color:#fff;font-weight:700;margin-bottom:4px">VNPT Smart Camera · Quickwin 45'</div>
-    <div>Phòng Nghiệp vụ Đào tạo · Nội bộ VNPT · T5/2026</div>
+    <div>Biên soạn: <strong style="color:var(--accent)">Vưu Hồng Châu</strong> · Nội bộ VNPT · T5/2026</div>
   </div>
   <div class="footer-links">
     <a href="https://baogiacamera.netlify.app/" target="_blank" rel="noopener">🧾 Tạo Báo Giá</a>
@@ -1766,7 +1943,604 @@ document.addEventListener('keydown', (e) => {
   if (e.key === '1') tabs[0]?.click();
   if (e.key === '2') tabs[1]?.click();
   if (e.key === '3') tabs[2]?.click();
+  if (e.key === '4') tabs[3]?.click();
 });
+
+/* ══════════════════════════════════════════════════════════
+   QUIZ ENGINE — 100 câu hỏi
+   ══════════════════════════════════════════════════════════ */
+const QUESTIONS = [
+/* ── NHÓM A: TÍNH NĂNG CAMERA (25 câu) ───────────────── */
+{id:1,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Camera Indoor IS310P có độ phân giải bao nhiêu?',
+ opts:['2MP (1080p Full HD)','4MP (2K)','5MP','8MP (4K)'],ans:0,
+ explain:'IS310P đạt 2MP = 1080p Full HD, đủ để nhận diện rõ mặt người trong phòng.'},
+{id:2,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Camera Indoor IS310P sử dụng chuẩn WiFi nào?',
+ opts:['WiFi 5GHz (ac)','WiFi 6 (ax)','WiFi 2.4GHz (b/g/n)','Bluetooth 5.0'],ans:2,
+ explain:'IS310P dùng WiFi 2.4GHz — phủ sóng rộng hơn, xuyên tường tốt hơn 5GHz.'},
+{id:3,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Góc nhìn (FOV) của Camera Indoor IS310P là bao nhiêu?',
+ opts:['90°','110°','130°','160°'],ans:2,
+ explain:'IS310P có FOV 130°, phù hợp bao quát toàn bộ phòng từ 20–30m².'},
+{id:4,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Tính năng AI nào phát hiện khi có người đi vào vùng cài đặt và gửi thông báo?',
+ opts:['Sound Detection','Motion Tracking','Human Detection','Face Recognition'],ans:2,
+ explain:'Human Detection dùng AI phân biệt người với vật thể, gửi push notification qua OneHome.'},
+{id:5,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Motion Tracking là tính năng gì của Camera Indoor IS310P?',
+ opts:['Phát hiện tiếng động lớn và ghi hình','Camera tự xoay theo đối tượng di chuyển','Nhận diện khuôn mặt quen','Ghi hình liên tục 24/7'],ans:1,
+ explain:'Motion Tracking cho phép camera PTZ tự động xoay theo người/vật đang di chuyển trong khung hình.'},
+{id:6,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Camera Outdoor ES311P đạt chuẩn chống nước nào?',
+ opts:['IP44','IP54','IP65','IP66'],ans:3,
+ explain:'IP66 nghĩa là chống bụi hoàn toàn và chống tia nước mạnh mọi hướng — lắp ngoài trời an toàn.'},
+{id:7,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Khoảng cách hồng ngoại (IR) ban đêm của Camera Outdoor ES311P là bao nhiêu?',
+ opts:['10m','15m','20m','30m'],ans:3,
+ explain:'ES311P nhìn rõ ban đêm tới 30m nhờ đèn hồng ngoại — phù hợp sân, cổng, bãi xe.'},
+{id:8,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Ngoài WiFi, Camera Outdoor ES311P còn hỗ trợ kết nối nào?',
+ opts:['Bluetooth','Zigbee','Cổng LAN (Ethernet)','4G LTE'],ans:2,
+ explain:'ES311P có cổng LAN giúp kết nối ổn định khi WiFi yếu hoặc không khả dụng.'},
+{id:9,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Khẩu độ ống kính f/2.0 của Camera Outdoor ES311P có nghĩa là gì?',
+ opts:['Góc nhìn rộng hơn 180°','Thu sáng tốt hơn, quay ban đêm rõ hơn','Độ phân giải 4K','Kết nối WiFi tốc độ cao'],ans:1,
+ explain:'f/2.0 là khẩu độ lớn, thu nhiều sáng hơn — camera quay đêm sắc nét hơn dù ít ánh sáng.'},
+{id:10,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Điểm khác biệt lớn nhất giữa Camera Indoor và Outdoor VNPT là gì?',
+ opts:['Giá tiền khác nhau hoàn toàn','Indoor có AI, Outdoor không có AI','Outdoor có cổng LAN + chuẩn chống nước IP66','Indoor quay ban đêm tốt hơn Outdoor'],ans:2,
+ explain:'Outdoor ES311P thêm cổng LAN (kết nối ổn định) và IP66 (chống nước mạnh) để lắp ngoài trời.'},
+{id:11,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Ứng dụng quản lý camera VNPT tên là gì?',
+ opts:['VNHome','MyVNPT','OneHome','SmartCam'],ans:2,
+ explain:'OneHome là app chính thức của VNPT — quản lý camera, thiết bị nhà thông minh, xem trực tiếp và phát lại video.'},
+{id:12,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Gói VNPT Cloud 7 ngày cho phép xem lại video trong bao lâu?',
+ opts:['3 ngày','7 ngày','14 ngày','30 ngày'],ans:1,
+ explain:'Gói Cloud 7 ngày lưu toàn bộ video 7 ngày gần nhất trên server VNPT trong nước.'},
+{id:13,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Sound Detection phát hiện điều gì?',
+ opts:['Giọng nói của chủ nhà','Tiếng động bất thường như khóc, đập phá','Âm nhạc từ TV','Tiếng chuông cửa'],ans:1,
+ explain:'Sound Detection dùng AI nhận diện âm thanh bất thường (tiếng khóc, vỡ đồ...) và gửi thông báo ngay.'},
+{id:14,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Trong mô hình 3 tầng giá trị, tầng nào là "vũ khí mạnh nhất" của VNPT?',
+ opts:['Core Benefit (tâm lý an tâm)','Actual Product (phần cứng)','Augmented Product (dịch vụ đi kèm)','Brand Value (thương hiệu)'],ans:2,
+ explain:'Augmented Product — bảo hành trọn đời 1 đổi 1 tại nhà + hỗ trợ 24/7 — là lợi thế cạnh tranh khác biệt nhất.'},
+{id:15,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Core Benefit (tầng 1) của camera an ninh là gì?',
+ opts:['Độ phân giải Full HD','Cảm giác an tâm và kiểm soát','Giá cả phải chăng','Dễ lắp đặt'],ans:1,
+ explain:'KH không mua "camera" — họ mua "sự an tâm": biết nhà cửa, con cái, tài sản luôn được trông nom.'},
+{id:16,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Actual Product (tầng 2) trong mô hình 3 tầng là gì?',
+ opts:['Cảm giác an toàn của khách hàng','Phần cứng camera + phần mềm OneHome','Dịch vụ hỗ trợ kỹ thuật 24/7','Thương hiệu VNPT'],ans:1,
+ explain:'Actual Product là sản phẩm vật lý + phần mềm: thông số kỹ thuật, AI, app OneHome.'},
+{id:17,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Camera Indoor IS310P phù hợp lắp ở đâu nhất?',
+ opts:['Cổng nhà ngoài trời','Bãi giữ xe ngoài trời','Trong nhà: phòng khách, phòng ngủ, phòng trẻ em','Mái hiên nhà'],ans:2,
+ explain:'Indoor IS310P thiết kế cho môi trường trong nhà — không chống nước, không chống bụi ngoài trời.'},
+{id:18,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Camera Outdoor ES311P phù hợp lắp ở đâu nhất?',
+ opts:['Phòng ngủ trong nhà','Phòng trẻ em','Cổng nhà, sân, bãi giữ xe ngoài trời','Nhà bếp'],ans:2,
+ explain:'ES311P với IP66 và hồng ngoại 30m là lựa chọn lý tưởng cho không gian ngoài trời.'},
+{id:19,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'Augmented Product của VNPT Camera bao gồm gì?',
+ opts:['Chỉ phần cứng camera','Bảo hành trọn đời + lắp đặt tại nhà + hỗ trợ 24/7','Chỉ ứng dụng OneHome','Dịch vụ Cloud miễn phí 1 năm'],ans:1,
+ explain:'Đây là tầng 3 — dịch vụ đi kèm: bảo hành trọn đời 1 đổi 1 tại nhà, kỹ thuật lắp đặt, hotline 24/7.'},
+{id:20,cat:'A',catLabel:'Tính năng Camera',type:'MC',
+ q:'So với camera thương hiệu Trung Quốc (Xiaomi, Ezviz), VNPT Cloud có ưu thế gì?',
+ opts:['Giá rẻ hơn nhiều','Camera thiết kế đẹp hơn','Server trong nước + hỗ trợ 24/7 bằng tiếng Việt','Độ phân giải cao hơn'],ans:2,
+ explain:'VNPT lưu dữ liệu trên server đặt tại Việt Nam, tuân thủ pháp luật ATTT, đội hỗ trợ tiếng Việt 24/7.'},
+/* TF group A */
+{id:21,cat:'A',catLabel:'Tính năng Camera',type:'TF',
+ q:'Camera Indoor IS310P hỗ trợ âm thanh 2 chiều — có thể nghe và nói chuyện qua app OneHome.',
+ opts:['✅ Đúng','❌ Sai'],ans:0,
+ explain:'Đúng — IS310P có mic và loa tích hợp, hỗ trợ đàm thoại 2 chiều qua app OneHome.'},
+{id:22,cat:'A',catLabel:'Tính năng Camera',type:'TF',
+ q:'Camera Indoor IS310P có khả năng tự xoay theo đối tượng di chuyển (PTZ — Pan/Tilt/Zoom).',
+ opts:['✅ Đúng','❌ Sai'],ans:0,
+ explain:'Đúng — IS310P là camera PTZ, tự động xoay ngang/dọc theo người/vật nhờ Motion Tracking.'},
+{id:23,cat:'A',catLabel:'Tính năng Camera',type:'TF',
+ q:'Camera Indoor IS310P có thể lưu video bằng thẻ nhớ microSD.',
+ opts:['✅ Đúng','❌ Sai'],ans:0,
+ explain:'Đúng — IS310P hỗ trợ thẻ nhớ microSD để lưu cục bộ, là lựa chọn của gói thuê bao thẻ nhớ 30k/tháng.'},
+{id:24,cat:'A',catLabel:'Tính năng Camera',type:'TF',
+ q:'Camera VNPT có thể cài đặt vùng báo động riêng (chỉ báo khi có người vào vùng được khoanh) qua app OneHome.',
+ opts:['✅ Đúng','❌ Sai'],ans:0,
+ explain:'Đúng — OneHome cho phép vẽ vùng cảnh báo; chỉ khi có đối tượng vào vùng đó mới gửi thông báo.'},
+{id:25,cat:'A',catLabel:'Tính năng Camera',type:'TF',
+ q:'Camera Outdoor ES311P không hỗ trợ WiFi, chỉ kết nối qua cổng LAN dây.',
+ opts:['✅ Đúng','❌ Sai'],ans:1,
+ explain:'Sai — ES311P hỗ trợ CẢ HAI: WiFi và cổng LAN. Cổng LAN là lựa chọn thêm khi WiFi không ổn định.'},
+
+/* ── NHÓM B: GÓI CƯỚC (30 câu) ───────────────────────── */
+{id:26,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Gói Camera Indoor IS310P thuê bao tháng (lưu thẻ nhớ) giá bao nhiêu?',
+ opts:['20.000đ / tháng','30.000đ / tháng','40.000đ / tháng','50.000đ / tháng'],ans:1,
+ explain:'30.000đ/tháng là gói rẻ nhất — lưu video vào thẻ nhớ microSD, không có Cloud.'},
+{id:27,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Gói Indoor Cloud 7 ngày giá bao nhiêu mỗi tháng?',
+ opts:['30.000đ','35.000đ','40.000đ','45.000đ'],ans:2,
+ explain:'Indoor Cloud 7 ngày = 40.000đ/tháng — xem lại video 7 ngày gần nhất trên server VNPT.'},
+{id:28,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Gói Camera Outdoor ES311P thuê bao tháng (thẻ nhớ) giá bao nhiêu?',
+ opts:['40.000đ','50.000đ','60.000đ','70.000đ'],ans:1,
+ explain:'50.000đ/tháng cho Outdoor thẻ nhớ — chênh 20k so với Indoor vì thiết bị cao cấp hơn.'},
+{id:29,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Gói Outdoor Cloud 7 ngày giá bao nhiêu mỗi tháng?',
+ opts:['50.000đ','55.000đ','60.000đ','65.000đ'],ans:2,
+ explain:'60.000đ/tháng cho Outdoor Cloud 7 ngày — chênh 20k so với Indoor Cloud 7 ngày (40k).'},
+{id:30,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Ưu đãi khi đăng ký gói thuê bao 6 tháng là gì?',
+ opts:['Giảm 10% tổng cước','Tặng thêm 1 tháng sử dụng miễn phí','Miễn phí lắp đặt','Tặng thẻ nhớ 32GB'],ans:1,
+ explain:'Đăng ký 6 tháng = trả 6 tháng, dùng được 7 tháng. Áp dụng cho tất cả gói thuê bao.'},
+{id:31,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Đăng ký 12–13 tháng được ưu đãi đặc biệt gì?',
+ opts:['Tặng 2 tháng miễn phí','Tặng 1 tháng + miễn phí lắp đặt','Tặng 1 tháng + tặng thẻ nhớ 64GB','Chỉ tặng 1 tháng thông thường'],ans:1,
+ explain:'12–13 tháng: tặng 1 tháng + MIỄN PHÍ lắp đặt tận nhà — đây là ưu đãi tốt nhất để thuyết phục KH chốt dài hạn.'},
+{id:32,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Gói Pack 03 camera (nhiều cam cùng 1 gói) giá bao nhiêu mỗi tháng?',
+ opts:['60.000đ','70.000đ','80.000đ','90.000đ'],ans:2,
+ explain:'Pack 03 = 80.000đ/tháng. So với 3 gói Indoor lẻ (90k), tiết kiệm 10k/tháng.'},
+{id:33,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Gói Pack 05 camera giá bao nhiêu mỗi tháng?',
+ opts:['100.000đ','110.000đ','120.000đ','130.000đ'],ans:3,
+ explain:'Pack 05 = 130.000đ/tháng. Phù hợp cửa hàng, văn phòng nhỏ có 5 điểm cần giám sát.'},
+{id:34,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Gói Pack 10 camera giá bao nhiêu mỗi tháng?',
+ opts:['200.000đ','220.000đ','250.000đ','300.000đ'],ans:2,
+ explain:'Pack 10 = 250.000đ/tháng. So với 10 gói lẻ (300k), tiết kiệm tới 50.000đ/tháng.'},
+{id:35,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Gói Pack combo 1 Indoor + 1 Outdoor giá bao nhiêu mỗi tháng?',
+ opts:['60.000đ','66.000đ','70.000đ','80.000đ'],ans:1,
+ explain:'Pack 01+01 = 66.000đ/tháng. So với đăng ký lẻ (30k+50k=80k), tiết kiệm 14.000đ/tháng.'},
+{id:36,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Giá TTN (mua đứt) Camera Indoor IS310P là bao nhiêu?',
+ opts:['546.000đ','646.000đ','746.000đ','846.000đ'],ans:1,
+ explain:'TTN Indoor IS310P = 646.000đ — bảo hành 12 tháng, không có dịch vụ 1 đổi 1 trọn đời.'},
+{id:37,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Giá TTN Camera Outdoor ES311P là bao nhiêu?',
+ opts:['846.000đ','946.000đ','1.046.000đ','1.146.000đ'],ans:1,
+ explain:'TTN Outdoor ES311P = 946.000đ — bảo hành 12 tháng tại cửa hàng.'},
+{id:38,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Giá TTN Đầu ghi NVR WN883P là bao nhiêu?',
+ opts:['1.470.000đ','1.670.000đ','1.870.000đ','2.070.000đ'],ans:2,
+ explain:'NVR WN883P = 1.870.000đ — dùng để kết nối và ghi hình nhiều camera qua hệ thống đầu ghi.'},
+{id:39,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Hình thức bảo hành của gói thuê bao là gì?',
+ opts:['12 tháng tại cửa hàng','24 tháng tại cửa hàng','Trọn đời — 1 đổi 1 tại nhà KH','36 tháng, mang đến cửa hàng'],ans:2,
+ explain:'Thuê bao VNPT: bảo hành TRỌN ĐỜI, 1 đổi 1 tại nhà — kỹ thuật viên đến tận nơi, KH không phải mang máy đi đâu cả.'},
+{id:40,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Bảo hành TTN (mua đứt) thời hạn bao lâu?',
+ opts:['6 tháng','12 tháng','18 tháng','24 tháng'],ans:1,
+ explain:'TTN bảo hành 12 tháng — sau đó nếu hỏng phải tính phí sửa chữa, không được 1 đổi 1.'},
+{id:41,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Sau khi hết 12 tháng bảo hành TTN, camera hỏng thì thế nào?',
+ opts:['Đổi máy mới miễn phí','Tính phí sửa chữa theo từng lần','Gia hạn bảo hành thêm 12 tháng tự động','VNPT hỗ trợ miễn phí mãi mãi'],ans:1,
+ explain:'Hết bảo hành TTN: phát sinh chi phí sửa chữa. Đây là lý do nên tư vấn KH dùng thuê bao thay vì TTN.'},
+{id:42,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Gói Indoor Cloud 7 ngày và Outdoor Cloud 7 ngày chênh nhau bao nhiêu?',
+ opts:['10.000đ','15.000đ','20.000đ','25.000đ'],ans:2,
+ explain:'Indoor Cloud 7 ngày = 40k; Outdoor Cloud 7 ngày = 60k → chênh 20.000đ/tháng.'},
+{id:43,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Lợi ích chính khi nâng số camera lên các gói Pack cao hơn là gì?',
+ opts:['Được hỗ trợ kỹ thuật riêng biệt','Miễn phí lắp đặt thêm không giới hạn','Giá mỗi camera giảm xuống theo Pack','Tặng thêm tháng sử dụng miễn phí'],ans:2,
+ explain:'Pack 01=30k/cam, Pack 03=80k/3cam≈26.7k/cam, Pack 10=250k/10cam=25k/cam — giá/cam giảm khi Pack lớn hơn.'},
+{id:44,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Chu kỳ thuê bao ngắn nhất hiện có là bao lâu?',
+ opts:['1 tuần','1 tháng','3 tháng','6 tháng'],ans:1,
+ explain:'Chu kỳ ngắn nhất là 1 tháng — KH có thể thử trước khi quyết định đăng ký dài hạn.'},
+{id:45,cat:'B',catLabel:'Gói cước',type:'MC',
+ q:'Điểm khác biệt quan trọng nhất giữa TTN và thuê bao là gì?',
+ opts:['TTN đắt hơn nhiều lần','Thuê bao bảo hành trọn đời 1 đổi 1, TTN chỉ 12 tháng','TTN không có tính năng Cloud','Thuê bao không cần dùng thẻ nhớ'],ans:1,
+ explain:'Đây là điểm bán hàng cốt lõi khi KH so sánh: thuê bao = yên tâm trọn đời, TTN = sau 12 tháng tự lo.'},
+/* TF group B */
+{id:46,cat:'B',catLabel:'Gói cước',type:'TF',
+ q:'Gói Cloud (7 ngày hoặc 30 ngày) cho phép xem lại video trong thời hạn đã đăng ký.',
+ opts:['✅ Đúng','❌ Sai'],ans:0,
+ explain:'Đúng — video lưu trên server VNPT và xem lại bất kỳ lúc nào trong thời hạn gói đang dùng.'},
+{id:47,cat:'B',catLabel:'Gói cước',type:'TF',
+ q:'Camera của hãng khác (Xiaomi, Ezviz) có thể sử dụng dịch vụ Cloud VNPT.',
+ opts:['✅ Đúng','❌ Sai'],ans:1,
+ explain:'Sai — Cloud VNPT chỉ tương thích với camera VNPT (IS310P, ES311P). Camera hãng khác không dùng được.'},
+{id:48,cat:'B',catLabel:'Gói cước',type:'TF',
+ q:'Gói Pack 01+01 (1 Indoor + 1 Outdoor) rẻ hơn so với đăng ký riêng lẻ từng gói.',
+ opts:['✅ Đúng','❌ Sai'],ans:0,
+ explain:'Đúng — Pack 01+01 = 66k; riêng lẻ Indoor 30k + Outdoor 50k = 80k → tiết kiệm 14.000đ/tháng.'},
+{id:49,cat:'B',catLabel:'Gói cước',type:'TF',
+ q:'Đăng ký gói thuê bao 12 tháng được miễn phí lắp đặt tại nhà.',
+ opts:['✅ Đúng','❌ Sai'],ans:0,
+ explain:'Đúng — 12–13 tháng: tặng 1 tháng + miễn phí lắp đặt. Đây là ưu đãi lớn nhất cần nhấn khi tư vấn.'},
+{id:50,cat:'B',catLabel:'Gói cước',type:'TF',
+ q:'Gói TTN (mua đứt) cũng được bảo hành trọn đời giống gói thuê bao.',
+ opts:['✅ Đúng','❌ Sai'],ans:1,
+ explain:'Sai — TTN chỉ bảo hành 12 tháng. Chỉ thuê bao mới được bảo hành TRỌN ĐỜI 1 đổi 1 tại nhà.'},
+/* TH group B */
+{id:51,cat:'B',catLabel:'Gói cước',type:'TH',
+ q:'KH nói: "Tôi chỉ có khoảng 30.000đ/tháng, có gói nào phù hợp không?" Câu trả lời đúng nhất?',
+ opts:['Không có gói nào dưới 50k','Camera Indoor IS310P thẻ nhớ — đúng 30.000đ/tháng','Camera Outdoor thẻ nhớ — 50.000đ/tháng','Phải đăng ký tối thiểu 6 tháng mới hợp lệ'],ans:1,
+ explain:'Indoor thẻ nhớ 30k/tháng là gói rẻ nhất, hoàn toàn phù hợp ngân sách KH.'},
+{id:52,cat:'B',catLabel:'Gói cước',type:'TH',
+ q:'KH hỏi: "Mua đứt hay thuê bao lợi hơn?" ĐTV nên nhấn mạnh điều gì để thuyết phục thuê bao?',
+ opts:['Mua đứt lúc nào cũng lợi hơn','Thuê bao lợi hơn vì bảo hành TRỌN ĐỜI + 1 đổi 1 tại nhà, không lo hỏng','Hai gói như nhau, chọn theo thói quen','Mua đứt để không bị ràng buộc hàng tháng'],ans:1,
+ explain:'Điểm chốt: thuê bao = bảo hành trọn đời 1 đổi 1 tại nhà. KH không bao giờ sợ camera hỏng mà không được đổi.'},
+{id:53,cat:'B',catLabel:'Gói cước',type:'TH',
+ q:'KH có cửa hàng 5 điểm, muốn lắp camera toàn bộ. ĐTV nên đề xuất gói nào?',
+ opts:['5 gói Indoor lẻ = 5×30k = 150k/tháng','Pack 05 — 130.000đ/tháng, tiết kiệm 20k','TTN 5 camera — trả 1 lần','Pack 03 + 2 gói lẻ riêng'],ans:1,
+ explain:'Pack 05 = 130k/tháng < 5 gói lẻ (150k). Tiết kiệm 20k/tháng = 240k/năm — hấp dẫn với KH doanh nghiệp.'},
+{id:54,cat:'B',catLabel:'Gói cước',type:'TH',
+ q:'KH đang dùng gói 1 tháng, sắp đi du lịch dài hơi và muốn nâng lên 6 tháng. Lợi ích thêm là gì?',
+ opts:['Được miễn phí lắp thêm camera','Tặng thêm 1 tháng sử dụng miễn phí','Được nâng lên Cloud 30 ngày miễn phí','Giảm 10% tháng tiếp theo'],ans:1,
+ explain:'Đăng ký 6 tháng = dùng được 7 tháng (tặng 1 tháng). Đây là ưu đãi trực tiếp tiết kiệm tiền cho KH.'},
+{id:55,cat:'B',catLabel:'Gói cước',type:'TH',
+ q:'KH muốn xem lại video 2 tuần trước (14 ngày). Gói nào đáp ứng được?',
+ opts:['Cloud 7 ngày (40k hoặc 60k/tháng)','Cloud 30 ngày','Gói thẻ nhớ 64GB','Gói Pack 03'],ans:1,
+ explain:'Cloud 7 ngày chỉ lưu 7 ngày. Cần Cloud 30 ngày mới xem lại được 14 ngày trước.'},
+
+/* ── NHÓM C: CÔNG CỤ & QUY TRÌNH (20 câu) ───────────── */
+{id:56,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Địa chỉ website công cụ tạo báo giá gửi khách hàng là gì?',
+ opts:['priceCamera.vnpt.vn','baogiacamera.netlify.app','quotecam.netlify.app','baogiacam.vnpt.com.vn'],ans:1,
+ explain:'baogiacamera.netlify.app — công cụ tạo ảnh báo giá PNG 9:16 chuẩn Zalo, không cần đăng nhập.'},
+{id:57,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Địa chỉ website kịch bản outbound telesale là gì?',
+ opts:['script.vnpt.vn','kichban.netlify.app','obcamera.netlify.app','callscript.vnpt.vn'],ans:2,
+ explain:'obcamera.netlify.app — kịch bản 5 giai đoạn, xử lý 3 tình huống từ chối phổ biến.'},
+{id:58,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'File xuất ra từ công cụ báo giá có định dạng và tỉ lệ gì?',
+ opts:['PDF A4 in được','Excel bảng giá chi tiết','Ảnh PNG tỉ lệ 9:16 (chuẩn story/Zalo)','Word document có logo'],ans:2,
+ explain:'PNG 9:16 = tỉ lệ màn hình điện thoại — gửi Zalo hiển thị đẹp, KH xem không cần zoom.'},
+{id:59,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Kịch bản outbound telesale chia thành mấy giai đoạn?',
+ opts:['3 giai đoạn','4 giai đoạn','5 giai đoạn','7 giai đoạn'],ans:2,
+ explain:'5 giai đoạn trong khoảng 5 phút: Chào → Khai thác → Giới thiệu → Xử lý từ chối → Chốt.'},
+{id:60,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Giai đoạn 1 trong kịch bản 5 bước outbound là gì?',
+ opts:['Trình bày giá ngay','Chốt đơn','Chào hỏi + xác nhận đúng người nhận cuộc gọi','Xử lý từ chối'],ans:2,
+ explain:'Giai đoạn 1: "Xin lỗi, tôi có đang nói chuyện với anh/chị [tên] không ạ?" — xác nhận đúng đối tượng trước.'},
+{id:61,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Mục tiêu thời gian lý tưởng của một cuộc gọi outbound là bao lâu?',
+ opts:['2 phút','5 phút','10 phút','15 phút'],ans:1,
+ explain:'Kịch bản được thiết kế để hoàn thành trong ~5 phút — đủ để giới thiệu, khai thác và chốt đơn.'},
+{id:62,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Giai đoạn 2 trong kịch bản 5 bước outbound là gì?',
+ opts:['Chốt đơn / hẹn lắp đặt','Giới thiệu gói cước','Khai thác nhu cầu / đặt câu hỏi mở','Xử lý từ chối'],ans:2,
+ explain:'Giai đoạn 2: đặt câu hỏi mở để biết nhu cầu KH (nhà mấy tầng? Có con nhỏ? Đã có camera chưa?).'},
+{id:63,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Giai đoạn 3 trong kịch bản 5 bước là gì?',
+ opts:['Chào hỏi KH','Khai thác nhu cầu thêm','Giới thiệu giải pháp phù hợp với nhu cầu KH','Chốt đơn'],ans:2,
+ explain:'Giai đoạn 3: từ thông tin ở giai đoạn 2, đề xuất ĐÚNG gói phù hợp, không giới thiệu tất cả gói.'},
+{id:64,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Giai đoạn cuối cùng (5/5) của kịch bản outbound là gì?',
+ opts:['Gửi báo giá Zalo','Xử lý từ chối','Khai thác thêm nhu cầu','Chốt đơn / hẹn lịch lắp đặt cụ thể'],ans:3,
+ explain:'Giai đoạn 5: "Anh/chị có thể lắp vào thứ mấy tuần này ạ?" — đặt câu hỏi chốt lịch hẹn cụ thể.'},
+{id:65,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Trong quy trình tư vấn, khi nào phù hợp nhất để dùng tool báo giá?',
+ opts:['Trước khi giới thiệu sản phẩm','Ngay đầu cuộc gọi thay vì chào hỏi','Sau khi giới thiệu xong và KH có dấu hiệu quan tâm hỏi giá','Chỉ khi KH yêu cầu bằng văn bản'],ans:2,
+ explain:'Gửi báo giá sau khi KH đã hiểu giá trị — lúc đó ảnh báo giá là công cụ chốt đơn, không phải thông tin thuần.'},
+{id:66,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Ảnh báo giá PNG 9:16 phù hợp gửi qua kênh nào nhất?',
+ opts:['Email','Zalo','SMS','Facebook Messenger'],ans:1,
+ explain:'Zalo — tỉ lệ 9:16 hiển thị full màn hình, KH xem trực tiếp không cần mở app khác, dễ screenshot và chia sẻ.'},
+{id:67,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Sau khi gửi ảnh báo giá qua Zalo, bước tiếp theo ĐTV nên làm gì?',
+ opts:['Chờ KH liên hệ lại tự nhiên khi cần','Follow up: nhắn hỏi KH đã xem chưa và chốt đơn','Gọi lại ngay sau 5 phút','Gửi thêm ảnh gói khác để KH so sánh'],ans:1,
+ explain:'Gửi xong cần follow up trong 1–2 ngày: "Anh/chị đã xem ảnh báo giá em gửi chưa ạ? Có thắc mắc gì không?"'},
+{id:68,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Cách truy cập công cụ kịch bản outbound là gì?',
+ opts:['Cài app từ CH Play','Truy cập obcamera.netlify.app trên trình duyệt','Đăng nhập hệ thống CRM nội bộ','Dùng phần mềm VNPT được cấp riêng'],ans:1,
+ explain:'obcamera.netlify.app — mở trên bất kỳ trình duyệt nào, không cần đăng nhập hay cài app.'},
+{id:69,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Thời điểm nào trong cuộc gọi phù hợp nhất để gửi ảnh báo giá?',
+ opts:['Ngay khi mở đầu cuộc gọi','Trước khi hỏi tên KH','Khi KH đồng ý nghe thêm hoặc sau khai thác nhu cầu','Chỉ gửi sau khi KH đã đồng ý mua'],ans:2,
+ explain:'Gửi báo giá khi KH đang "nóng" — đã khai thác nhu cầu, biết KH cần gì, gửi đúng gói phù hợp.'},
+{id:70,cat:'C',catLabel:'Công cụ',type:'MC',
+ q:'Ngoài gọi điện outbound, kịch bản ở obcamera.netlify.app còn dùng được cho việc gì?',
+ opts:['Chỉ dùng cho gọi điện cold call','Tham khảo cấu trúc tư vấn khi gặp trực tiếp KH tại nhà','Thay thế hợp đồng ký kết','Tài liệu nội bộ không mang ra tư vấn'],ans:1,
+ explain:'Cấu trúc 5 giai đoạn cũng áp dụng được cho tư vấn trực tiếp — chỉ cần điều chỉnh tốc độ và ngôn ngữ.'},
+/* TH group C */
+{id:71,cat:'C',catLabel:'Công cụ',type:'TH',
+ q:'KH hỏi: "Tôi muốn gửi báo giá camera cho khách qua Zalo, làm thế nào?" ĐTV hướng dẫn ra sao?',
+ opts:['Gửi danh sách giá bằng tin nhắn text thủ công','Vào baogiacamera.netlify.app, chọn gói và tải xuống ảnh PNG 9:16','Chụp màn hình bảng giá từ file Excel','Gửi link website VNPT chính thức cho KH tự xem'],ans:1,
+ explain:'baogiacamera.netlify.app tạo ảnh chuyên nghiệp, gửi Zalo hiển thị đẹp, KH xem dễ hơn nhiều so với text.'},
+{id:72,cat:'C',catLabel:'Công cụ',type:'TH',
+ q:'Trước khi thực hiện cuộc gọi outbound, ĐTV nên chuẩn bị gì?',
+ opts:['Không cần chuẩn bị gì đặc biệt','Đọc lại kịch bản 5 giai đoạn ở obcamera.netlify.app + chuẩn bị ảnh báo giá sẵn','Chỉ cần tên và số điện thoại KH là đủ','Chuẩn bị file hợp đồng in sẵn'],ans:1,
+ explain:'Chuẩn bị = tự tin = tỷ lệ chốt cao hơn. Đọc kịch bản + có ảnh báo giá sẵn để gửi ngay khi KH đồng ý.'},
+{id:73,cat:'C',catLabel:'Công cụ',type:'TH',
+ q:'Khi KH hỏi giá trong lúc đang trao đổi qua điện thoại, ĐTV nên làm gì ngay lúc đó?',
+ opts:['Đọc từng gói giá qua điện thoại','Hứa sẽ gửi email sau khi cúp máy','Gửi ngay ảnh báo giá qua Zalo trong khi vẫn đang nói chuyện','Bảo KH vào website tự tra cứu'],ans:2,
+ explain:'"Anh/chị giữ máy 30 giây, em gửi ảnh báo giá qua Zalo ngay bây giờ ạ" — tạo trải nghiệm chuyên nghiệp, nhanh chóng.'},
+{id:74,cat:'C',catLabel:'Công cụ',type:'TH',
+ q:'Mục tiêu cuối cùng của kịch bản 5 giai đoạn outbound là gì?',
+ opts:['Giới thiệu đầy đủ tất cả tính năng sản phẩm','KH thuộc số hotline VNPT','Chốt được đơn hoặc hẹn lịch lắp đặt cụ thể','Gửi catalog đầy đủ qua email'],ans:2,
+ explain:'Mỗi cuộc gọi phải kết thúc bằng hành động cụ thể: đăng ký ngay hoặc hẹn ngày lắp — không kết thúc chung chung.'},
+{id:75,cat:'C',catLabel:'Công cụ',type:'TH',
+ q:'Sau khi kết thúc cuộc gọi thành công (KH đồng ý lắp đặt), ĐTV cần làm gì ngay?',
+ opts:['Ghi chú CRM đầy đủ: tên, địa chỉ, gói đăng ký, ngày giờ lắp','Báo ngay cho quản lý và chờ phân công kỹ thuật','Hỏi KH xem có người thân nào cần đăng ký không','Gửi email xác nhận chính thức'],ans:0,
+ explain:'Ghi CRM ngay sau cuộc gọi khi thông tin còn nóng hổi — đủ 4 mục: phản ứng KH, gói đã chốt, địa chỉ, thời gian lắp.'},
+
+/* ── NHÓM D: TÌNH HUỐNG THỰC CHIẾN (25 câu) ─────────── */
+{id:76,cat:'D',catLabel:'Tình huống',type:'TF',
+ q:'Camera Indoor IS310P có thể gửi thông báo đẩy (push notification) qua app OneHome khi phát hiện người lạ.',
+ opts:['✅ Đúng','❌ Sai'],ans:0,
+ explain:'Đúng — Human Detection + OneHome kết hợp gửi thông báo ngay lập tức khi phát hiện người trong vùng cảnh báo.'},
+{id:77,cat:'D',catLabel:'Tình huống',type:'TF',
+ q:'Camera VNPT có thể hoạt động bình thường khi mất điện mà không cần thiết bị dự phòng (UPS).',
+ opts:['✅ Đúng','❌ Sai'],ans:1,
+ explain:'Sai — Camera cần nguồn điện liên tục. Nếu KH cần giám sát 24/7 kể cả cúp điện, phải dùng thêm UPS.'},
+{id:78,cat:'D',catLabel:'Tình huống',type:'TF',
+ q:'Khách hàng dùng gói Cloud 7 ngày có thể xem lại video từ 2 tuần trước (14 ngày).',
+ opts:['✅ Đúng','❌ Sai'],ans:1,
+ explain:'Sai — Cloud 7 ngày chỉ lưu 7 ngày gần nhất. Muốn xem lại 14 ngày cần nâng lên gói Cloud 30 ngày.'},
+{id:79,cat:'D',catLabel:'Tình huống',type:'TF',
+ q:'Gói thuê bao VNPT hỗ trợ đổi camera mới 1 đổi 1 tại nhà KH khi thiết bị hỏng.',
+ opts:['✅ Đúng','❌ Sai'],ans:0,
+ explain:'Đúng — Đây là điểm bán hàng mạnh nhất: kỹ thuật viên đến tận nhà đổi máy mới, KH không cần làm gì.'},
+{id:80,cat:'D',catLabel:'Tình huống',type:'TF',
+ q:'Sau 12 tháng bảo hành TTN hết hạn, VNPT vẫn sửa chữa miễn phí cho khách hàng.',
+ opts:['✅ Đúng','❌ Sai'],ans:1,
+ explain:'Sai — Hết 12 tháng bảo hành TTN, sửa chữa phải tính phí. Đây là lý do thuê bao có lợi hơn về dài hạn.'},
+/* TH group D */
+{id:81,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH nói: "Nhà tôi đã có camera Xiaomi rồi." ĐTV nên phản hồi thế nào?',
+ opts:['Bảo KH bỏ camera cũ đi mua VNPT','Hỏi KH đang hài lòng điểm nào, sau đó nhấn vào server trong nước + bảo hành 1 đổi 1 tại nhà','Nói camera Xiaomi chất lượng kém hơn VNPT','Không tư vấn tiếp vì KH đã có camera rồi'],ans:1,
+ explain:'Không chê đối thủ. Hỏi để hiểu rồi so sánh bằng điểm mạnh: "Xiaomi có bảo hành trọn đời 1 đổi 1 tại nhà không ạ?"'},
+{id:82,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH hỏi: "Camera VNPT có xem được ban đêm không?" Câu trả lời ngắn gọn và đầy đủ nhất?',
+ opts:['Có, nhưng phải mua thêm đèn chiếu','Có — Outdoor thấy rõ 30m nhờ hồng ngoại; Indoor cũng có hồng ngoại dùng trong nhà','Không, camera VNPT cần ánh sáng mới quay được','Tùy model, phải hỏi kỹ thuật xác nhận'],ans:1,
+ explain:'Cả 2 model đều có hồng ngoại. ES311P nổi bật với 30m — phù hợp cổng nhà. IS310P dùng trong phòng tối.'},
+{id:83,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH than: "WiFi nhà tôi chập chờn lắm, camera có dùng được không?" Đề xuất tốt nhất?',
+ opts:['Bảo KH đổi sang nhà mạng khác trước','Khuyên dùng Camera Outdoor ES311P — có cổng LAN ổn định dù WiFi yếu','Nói camera không dùng được khi WiFi không ổn','Khuyên lắp thêm bộ phát WiFi mở rộng'],ans:1,
+ explain:'ES311P có cổng LAN — kết nối dây luôn ổn định, không phụ thuộc WiFi. Lý tưởng cho nhà WiFi yếu.'},
+{id:84,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH lo lắng: "Tôi sợ camera bị hack, người lạ xem trộm vào nhà tôi." Câu trả lời phù hợp nhất?',
+ opts:['Cam đoan camera VNPT không bao giờ bị hack','VNPT dùng server đặt trong nước, mã hóa dữ liệu, tuân thủ quy định an toàn thông tin nhà nước VN','Nói hack là chuyện bình thường với mọi camera','Khuyên tắt WiFi khi không xem để an toàn'],ans:1,
+ explain:'Nhấn vào: server trong nước (không qua nước ngoài), mã hóa end-to-end, tuân thủ Luật ATTT — dữ liệu KH được bảo vệ.'},
+{id:85,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH có em bé ở nhà, muốn nghe tiếng khóc khi đi làm. Tính năng và gói nào phù hợp nhất?',
+ opts:['Motion Tracking + gói thẻ nhớ 30k','Sound Detection + Cloud + OneHome push notification — nghe được lại và nhận cảnh báo tức thì','Face Recognition + gói cao nhất','Outdoor camera lắp trong phòng ngủ'],ans:1,
+ explain:'Sound Detection bắt tiếng khóc → gửi thông báo → xem live qua OneHome. Cloud lưu lại để xem lại khi về nhà.'},
+{id:86,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH hỏi: "Tôi không rành kỹ thuật, tự lắp được không?" Câu trả lời tốt nhất?',
+ opts:['Không, chỉ kỹ thuật VNPT mới được lắp','Gói 12 tháng được miễn phí lắp đặt tận nhà — kỹ thuật viên đến làm hết, KH chỉ cần có mặt','Tự lắp được nhưng sẽ mất bảo hành','Chỉ kỹ thuật VNPT lắp được và sẽ tính phí riêng'],ans:1,
+ explain:'Đây là cơ hội bán gói 12 tháng: "Anh/chị đăng ký 12 tháng là VNPT đến lắp miễn phí, hướng dẫn dùng app tại chỗ ạ."'},
+{id:87,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH so sánh: "Đắt quá, camera ngoài chợ chỉ 200.000đ." ĐTV nên nhấn vào điều gì?',
+ opts:['Đồng ý và đề xuất giảm giá ngay','So sánh giá trị: bảo hành + Cloud AI + hỗ trợ 24/7 — camera 200k không có những điều này','Nói camera VNPT bền gấp 10 lần camera chợ','Bảo KH mua camera chợ rồi sẽ biết hối hận'],ans:1,
+ explain:'"Camera 200k có bảo hành trọn đời 1 đổi 1 tại nhà không? Có AI phát hiện người và gửi thông báo không?" — so sánh giá trị, không so sánh giá.'},
+{id:88,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH hỏi: "Nhà hay bị cúp điện, lúc đó camera có chạy không?" Câu trả lời trung thực nhất?',
+ opts:['Vẫn chạy tốt nhờ pin tích hợp 2 tiếng','Không — camera cần nguồn điện liên tục; nếu cần 24/7 cả khi cúp điện nên dùng thêm UPS','Camera tự chuyển sang chế độ tiết kiệm pin','Chỉ mất WiFi, camera vẫn ghi vào thẻ nhớ'],ans:1,
+ explain:'Trả lời trung thực tạo niềm tin. Đề xuất thêm UPS là giải pháp hoàn chỉnh — KH đánh giá cao sự thành thật.'},
+{id:89,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH muốn theo dõi người giúp việc khi đi làm cả ngày. Gợi ý tính năng và gói phù hợp nhất?',
+ opts:['Sound Detection, gói thẻ nhớ','Chỉ cần xem live, không cần tính năng gì đặc biệt','Motion Tracking + Human Detection + Cloud để xem lại toàn bộ ngày hôm đó','Outdoor camera lắp trong nhà bếp'],ans:2,
+ explain:'Cloud lưu lại video cả ngày để xem lại tối về. Human Detection + Motion Tracking cảnh báo real-time nếu có bất thường.'},
+{id:90,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH ngại vì "VNPT hay lỗi mạng lắm, tôi không tin tưởng." ĐTV phản bác thế nào?',
+ opts:['Thừa nhận có lỗi nhưng ít khi xảy ra','Nói "VNPT không bao giờ lỗi"','Cam kết hỗ trợ 24/7 + bảo hành 1 đổi 1 tại nhà — nếu camera lỗi VNPT chịu hoàn toàn, KH không thiệt','Chuyển sang giới thiệu sản phẩm khác'],ans:2,
+ explain:'"Nếu có sự cố, VNPT sẽ đến tận nhà xử lý hoặc đổi máy mới — anh/chị không tốn thêm chi phí gì ạ." — bảo hành là tấm khiên tốt nhất.'},
+{id:91,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH có nhà 3 tầng, 4 phòng. ĐTV nên gợi ý bao nhiêu camera?',
+ opts:['1 camera đặt giữa nhà là đủ','10 camera, mỗi phòng và hành lang đều có','3–4 camera: 2–3 Indoor (phòng khách, phòng trẻ em) + 1 Outdoor (cổng ngoài)','Phải khảo sát thực tế nhà mới tư vấn được'],ans:2,
+ explain:'Gợi ý thực tế: Indoor cho các phòng quan trọng, 1 Outdoor bao quát cổng vào. Sau đó hỏi KH có điểm nào muốn thêm không.'},
+{id:92,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH thích sản phẩm nhưng muốn "để tháng sau" mới đăng ký. ĐTV nên làm gì?',
+ opts:['"OK anh/chị, tháng sau gọi lại cho em nhé"','Gửi ngay ảnh báo giá qua Zalo + hẹn ngày giờ cụ thể để follow up — không để KH nguội','Tặng quà nhỏ để KH quyết định ngay hôm nay','Cố gắng thuyết phục KH mua ngay bằng cách nhấn mạnh ưu đãi hết hạn'],ans:1,
+ explain:'Gửi báo giá + hẹn follow up: "Em sẽ nhắn lại anh/chị vào thứ X này nhé" — cụ thể hóa hành động tiếp theo để không mất KH.'},
+{id:93,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH nói: "Tôi không biết lắp camera ở vị trí nào trong nhà là hợp lý." ĐTV nên làm gì?',
+ opts:['Bảo KH tự nghiên cứu thêm','Gợi ý vị trí cụ thể: phòng khách góc cao nhìn vào cửa chính, phòng trẻ em, cổng ngoài','Chỉ kỹ thuật viên VNPT mới biết lắp đúng vị trí','Lắp nhiều camera ở nhiều chỗ cho chắc'],ans:1,
+ explain:'Tư vấn cụ thể = tạo niềm tin. "Phòng khách lắp góc cao đối diện cửa chính, bao quát 80% diện tích" — KH thấy ĐTV am hiểu.'},
+{id:94,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH đã mua TTN hỏi: "Sau 1 năm camera hỏng thì VNPT hỗ trợ thế nào?" Câu trả lời đúng nhất?',
+ opts:['Vẫn đổi máy mới miễn phí như gói thuê bao','Sau 12 tháng bảo hành TTN hết hạn, phí sửa chữa sẽ tính theo thực tế — không được 1 đổi 1','Gia hạn bảo hành thêm 12 tháng nữa tự động','VNPT hỗ trợ miễn phí mọi trường hợp'],ans:1,
+ explain:'Trả lời trung thực, đồng thời giới thiệu: "Nếu muốn, anh/chị có thể chuyển sang gói thuê bao để được bảo hành trọn đời ạ."'},
+{id:95,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH hỏi: "App xem camera tên gì, tải ở đâu?" Đáp án đầy đủ nhất?',
+ opts:['App VNHome — tải ở website VNPT','App OneHome — tải miễn phí trên App Store (iOS) và CH Play (Android)','App MyVNPT — tải từ CH Play','App iCamera — tải từ link SMS VNPT gửi'],ans:1,
+ explain:'OneHome — App Store hoặc CH Play, tìm "OneHome" là ra ngay. Hỗ trợ cả iOS và Android.'},
+{id:96,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH hỏi: "Mua Pack 10 thì tiết kiệm hơn 10 gói lẻ Indoor thẻ nhớ bao nhiêu mỗi tháng?"',
+ opts:['Tiết kiệm 20.000đ/tháng','Tiết kiệm 30.000đ/tháng','Tiết kiệm 50.000đ/tháng (300k – 250k)','Không tiết kiệm, giá như nhau'],ans:2,
+ explain:'10 gói Indoor lẻ = 10×30k = 300k. Pack 10 = 250k. Tiết kiệm = 50.000đ/tháng = 600.000đ/năm.'},
+{id:97,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH dùng Indoor thẻ nhớ 30k/tháng, muốn thêm tính năng xem lại video 7 ngày. Phải làm gì?',
+ opts:['Mua thêm thẻ nhớ dung lượng lớn hơn','Nâng cấp lên gói Indoor Cloud 7 ngày — 40.000đ/tháng, chỉ thêm 10k','Đăng ký thêm gói Outdoor Cloud riêng','Không có cách, phải mua camera mới'],ans:1,
+ explain:'Nâng từ thẻ nhớ 30k → Cloud 7 ngày 40k, chỉ tốn thêm 10.000đ/tháng — xem lại video 7 ngày trên server VNPT.'},
+{id:98,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH hỏi: "OneHome có làm được gì khác ngoài xem camera không?"',
+ opts:['Chỉ xem camera, không có chức năng khác','Quản lý các thiết bị nhà thông minh khác của VNPT: đèn, ổ cắm, khóa cửa thông minh...','Gọi điện và nhắn tin nội bộ miễn phí','Xem TV và nghe nhạc trực tuyến'],ans:1,
+ explain:'OneHome là nền tảng Smart Home VNPT — camera chỉ là 1 trong nhiều thiết bị có thể quản lý qua app này.'},
+{id:99,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'Sau khi KH đồng ý lắp đặt, ĐTV cần xác nhận những thông tin gì trước khi kết thúc cuộc gọi?',
+ opts:['Chỉ cần số điện thoại KH là đủ','Tên đầy đủ + địa chỉ lắp + gói đăng ký + ngày giờ kỹ thuật đến lắp','Chỉ cần địa chỉ lắp đặt','Hỏi thêm xem người thân có muốn đăng ký không'],ans:1,
+ explain:'4 thông tin bắt buộc: tên KH — địa chỉ cụ thể — gói đăng ký — thời gian lắp. Thiếu 1 trong 4 là cuộc gọi chưa hoàn chỉnh.'},
+{id:100,cat:'D',catLabel:'Tình huống',type:'TH',
+ q:'KH hỏi: "Lắp camera xong VNPT có hướng dẫn cách dùng app không hay tự mày mò?"',
+ opts:['Không, KH phải tự tìm hiểu qua YouTube','Có — kỹ thuật viên hướng dẫn sử dụng app OneHome ngay tại nhà khi lắp + hotline 18001166 hỗ trợ 24/7','Chỉ gửi manual PDF qua email','Chỉ khi KH yêu cầu riêng mới được hướng dẫn'],ans:1,
+ explain:'VNPT hướng dẫn tận tay tại nhà = trải nghiệm KH tốt = giảm churn. Sau đó có hotline 18001166 hỗ trợ bất kỳ lúc nào.'}
+];
+
+/* ── QUIZ STATE ─────────────────────────────────────────── */
+let qPool = [], qIdx = 0, qScore = 0, qAnswered = false, qWrong = [];
+let qCatStats = { A:{total:0,correct:0}, B:{total:0,correct:0}, C:{total:0,correct:0}, D:{total:0,correct:0} };
+
+function toggleCat(btn) {
+  const active = document.querySelectorAll('.cat-chip.active');
+  if (btn.classList.contains('active') && active.length === 1) return; // keep at least 1
+  btn.classList.toggle('active');
+}
+
+function selectCount(btn) {
+  document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const sb = document.getElementById('quiz-start-btn');
+  sb.disabled = false;
+  document.getElementById('count-hint').textContent = '✅ Sẵn sàng — nhấn nút bên dưới để bắt đầu';
+}
+
+function fisherYates(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startQuiz() {
+  const cats = [...document.querySelectorAll('.cat-chip.active')].map(c => c.dataset.cat);
+  const countBtn = document.querySelector('.count-btn.active');
+  if (!countBtn) return;
+  const count = parseInt(countBtn.dataset.count);
+
+  qPool = fisherYates(QUESTIONS.filter(q => cats.includes(q.cat))).slice(0, count);
+  qIdx = 0; qScore = 0; qWrong = [];
+  qCatStats = { A:{total:0,correct:0}, B:{total:0,correct:0}, C:{total:0,correct:0}, D:{total:0,correct:0} };
+
+  showScreen('quiz-run');
+  renderQuestion();
+}
+
+function showScreen(id) {
+  ['quiz-start','quiz-run','quiz-end'].forEach(s => {
+    const el = document.getElementById(s);
+    el.classList.remove('active');
+    el.style.display = 'none';
+  });
+  const target = document.getElementById(id);
+  target.style.display = 'block';
+  target.classList.add('active');
+  window.scrollTo({top: document.getElementById('s4').offsetTop - 130, behavior:'smooth'});
+}
+
+function renderQuestion() {
+  qAnswered = false;
+  const q = qPool[qIdx];
+  const total = qPool.length;
+
+  document.getElementById('q-counter').textContent = `Câu ${qIdx+1} / ${total}`;
+  document.getElementById('q-score-live').textContent = `✅ ${qScore} đúng`;
+  document.getElementById('q-progress').style.width = `${(qIdx/total)*100}%`;
+
+  const typeLabel = {MC:'Trắc nghiệm',TF:'Đúng / Sai',TH:'Tình huống'}[q.type];
+  document.getElementById('q-badges').innerHTML =
+    `<span class="q-badge q-badge-${q.cat}">${q.catLabel}</span>` +
+    `<span class="q-badge q-badge-type">${typeLabel}</span>`;
+
+  document.getElementById('q-text').textContent = q.q;
+
+  const optsEl = document.getElementById('q-opts');
+  optsEl.innerHTML = '';
+  const shuffled = q.type === 'TF'
+    ? q.opts.map((o,i)=>({o,i}))
+    : fisherYates(q.opts.map((o,i)=>({o,i})));
+
+  shuffled.forEach(({o,i}) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = o;
+    btn.dataset.origIdx = i;
+    btn.onclick = () => selectAnswer(btn, i, q.ans, shuffled);
+    optsEl.appendChild(btn);
+  });
+
+  document.getElementById('q-explain').classList.remove('show');
+  document.getElementById('q-next').classList.remove('show');
+}
+
+function selectAnswer(clickedBtn, chosenIdx, correctIdx, shuffled) {
+  if (qAnswered) return;
+  qAnswered = true;
+  const q = qPool[qIdx];
+  const isCorrect = chosenIdx === correctIdx;
+
+  if (isCorrect) {
+    qScore++;
+    qCatStats[q.cat].correct++;
+  } else {
+    qWrong.push({ q, chosen: q.opts[chosenIdx] });
+  }
+  qCatStats[q.cat].total++;
+
+  document.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.disabled = true;
+    if (parseInt(btn.dataset.origIdx) === correctIdx) btn.classList.add('correct');
+  });
+  if (!isCorrect) clickedBtn.classList.add('wrong');
+
+  const expLabel = document.getElementById('q-explain-label');
+  const expText  = document.getElementById('q-explain-text');
+  expLabel.textContent = isCorrect ? '✅ Chính xác!' : '❌ Chưa đúng — Giải thích:';
+  expText.textContent  = q.explain;
+  document.getElementById('q-explain').classList.add('show');
+  document.getElementById('q-next').classList.add('show');
+}
+
+function nextQuestion() {
+  qIdx++;
+  if (qIdx >= qPool.length) { showResults(); return; }
+  renderQuestion();
+}
+
+function showResults() {
+  const total = qPool.length;
+  const pct = Math.round((qScore / total) * 100);
+
+  document.getElementById('score-num').textContent = `${qScore}/${total}`;
+  document.getElementById('score-pct').textContent = `${pct}%`;
+
+  const circle = document.getElementById('score-circle');
+  circle.className = 'score-circle ' + (pct >= 80 ? 'great' : pct >= 60 ? 'ok' : 'poor');
+
+  let grade, msg;
+  if (pct >= 90) { grade = '🏆 Xuất sắc!'; msg = 'Bạn đã nắm vững kiến thức. Sẵn sàng tư vấn KH!'; }
+  else if (pct >= 80) { grade = '🎉 Giỏi!'; msg = 'Kiến thức tốt. Ôn thêm những câu chưa đúng.'; }
+  else if (pct >= 60) { grade = '👍 Khá!'; msg = 'Cần ôn thêm một số phần. Xem lại câu sai bên dưới.'; }
+  else { grade = '📚 Cần cố gắng thêm'; msg = 'Hãy ôn lại tài liệu và thử lại nhé!'; }
+
+  document.getElementById('score-grade').textContent = grade;
+  document.getElementById('score-msg').textContent = msg;
+
+  const catInfo = {A:{label:'📷 Tính năng',color:'var(--accent)'},B:{label:'💰 Gói cước',color:'var(--orange)'},C:{label:'🔧 Công cụ',color:'var(--green)'},D:{label:'🎭 Tình huống',color:'#7c3aed'}};
+  const breakdown = document.getElementById('cat-breakdown');
+  breakdown.innerHTML = '';
+  Object.entries(qCatStats).forEach(([cat, stat]) => {
+    if (stat.total === 0) return;
+    const p = Math.round((stat.correct/stat.total)*100);
+    breakdown.innerHTML += `<div class="cb-item"><div class="cb-score" style="color:${catInfo[cat].color}">${stat.correct}/${stat.total}</div><div class="cb-name">${catInfo[cat].label}<br>${p}%</div></div>`;
+  });
+
+  const wrongSection = document.getElementById('wrong-section');
+  const wrongList = document.getElementById('wrong-list');
+  if (qWrong.length === 0) {
+    document.getElementById('wrong-heading').textContent = '';
+    wrongList.innerHTML = '<div style="color:var(--green);font-weight:700;padding:16px 0">🎊 Tuyệt vời — không có câu nào sai!</div>';
+  } else {
+    document.getElementById('wrong-heading').textContent = `❌ ${qWrong.length} câu trả lời sai — ôn lại`;
+    wrongList.innerHTML = qWrong.map(({q,chosen}) =>
+      `<div class="wrong-item">
+        <div class="wi-q">${q.q}</div>
+        <div class="wi-your">❌ Bạn chọn: ${chosen}</div>
+        <div class="wi-ans">✅ Đúng: ${q.opts[q.ans]}</div>
+        <div class="wi-exp">${q.explain}</div>
+      </div>`
+    ).join('');
+  }
+
+  document.getElementById('q-progress').style.width = '100%';
+  showScreen('quiz-end');
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('quiz-start-btn').disabled = true;
+  document.getElementById('count-hint').textContent = '← Chọn số câu để kích hoạt nút bắt đầu';
+  showScreen('quiz-start');
+}
 </script>
 </body>
 </html>
