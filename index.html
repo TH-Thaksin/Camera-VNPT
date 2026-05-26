@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VNPT Smart Camera · Quickwin 45'</title>
+<style>
+/* ─── RESET & TOKENS ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:      #1a2540;
+  --primary:   #003087;
+  --blue:      #0055b3;
+  --accent:    #00A3E0;
+  --orange:    #E8691B;
+  --orange-lt: #fff4ee;
+  --bg:        #f0f4f8;
+  --card:      #ffffff;
+  --text:      #1a1a2e;
+  --muted:     #6B7280;
+  --border:    #e2e8f0;
+  --green:     #10B981;
+  --red:       #EF4444;
+  --shadow:    0 2px 12px rgba(0,0,0,.09);
+  --shadow-lg: 0 6px 24px rgba(0,0,0,.13);
+  --radius:    12px;
+  --radius-sm: 8px;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.65;
+}
+img { max-width: 100%; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── HEADER ─────────────────────────────────────────────── */
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(0,0,0,.25);
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.header-logo {
+  width: 38px; height: 38px;
+  background: var(--accent);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 900; color: #fff;
+  letter-spacing: -1px;
+}
+.header-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.header-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,.6);
+  font-weight: 400;
+}
+.header-badge {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,.8);
+  white-space: nowrap;
+}
+
+/* ─── TAB NAV ────────────────────────────────────────────── */
+.tab-bar {
+  background: var(--primary);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: sticky;
+  top: 64px;
+  z-index: 99;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 14px 20px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,.65);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-bottom: 3px solid transparent;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: #fff; background: rgba(255,255,255,.08); }
+.tab-btn.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+  background: rgba(0,163,224,.15);
+}
+.tab-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+}
+.tab-btn.active .tab-num { background: var(--accent); }
+.tab-min {
+  font-size: 11px;
+  color: rgba(255,255,255,.45);
+  font-weight: 400;
+}
+.tab-btn.active .tab-min { color: rgba(255,255,255,.7); }
+
+/* ─── MAIN / SECTIONS ───────────────────────────────────── */
+main { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+.section { display: none; }
+.section.active { display: block; }
+
+/* ─── TYPOGRAPHY ────────────────────────────────────────── */
+.section-heading {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+  margin-left: 8px;
+}
+.sub-heading {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 14px;
+}
+.sub-heading-sm {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin: 20px 0 10px;
+}
+
+/* ─── CARDS ─────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin: 18px 0;
+}
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 18px 0;
+}
+.card-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin: 18px 0;
+}
+
+/* ─── HERO SECTION ──────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 60%, var(--blue) 100%);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  color: #fff;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '📡';
+  position: absolute;
+  right: 30px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 100px;
+  opacity: .08;
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(0,163,224,.3);
+  border: 1px solid rgba(0,163,224,.5);
+  color: #7dd3fc;
+  border-radius: 20px;
+  padding: 3px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 14px;
+}
+.hero-title {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+.hero-title em {
+  color: var(--accent);
+  font-style: normal;
+}
+.hero-desc {
+  color: rgba(255,255,255,.8);
+  font-size: 15px;
+  max-width: 560px;
+}
+.hero-motto {
+  margin-top: 20px;
+  background: rgba(255,255,255,.12);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-style: italic;
+  color: rgba(255,255,255,.9);
+}
+
+/* ─── NEED → SOLUTION CARDS ─────────────────────────────── */
+.need-card {
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  border-top: 3px solid var(--accent);
+}
+.need-q { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+.need-a { font-size: 14px; font-weight: 600; color: var(--text); }
+.need-a strong { color: var(--blue); }
+
+/* ─── VALUE TIER CARDS ──────────────────────────────────── */
+.tier-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--border);
+  position: relative;
+}
+.tier-card.tier-1 { border-top-color: var(--accent); }
+.tier-card.tier-2 { border-top-color: var(--blue); }
+.tier-card.tier-3 { border-top-color: var(--orange); }
+.tier-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin-bottom: 6px;
+}
+.tier-1 .tier-label { color: var(--accent); }
+.tier-2 .tier-label { color: var(--blue); }
+.tier-3 .tier-label { color: var(--orange); }
+.tier-name { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+.tier-list { list-style: none; }
+.tier-list li {
+  font-size: 13.5px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+}
+.tier-list li:last-child { border-bottom: none; }
+.tier-badge {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: var(--orange-lt);
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(232,105,27,.2);
+}
+
+/* ─── CAMERA PRODUCT BLOCK ──────────────────────────────── */
+.cam-block {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin: 18px 0;
+}
+.cam-header {
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cam-header.indoor { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
+.cam-header.outdoor { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+.cam-icon {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+.indoor .cam-icon { background: #0ea5e9; }
+.outdoor .cam-icon { background: #10b981; }
+.cam-header-info h3 { font-size: 18px; font-weight: 800; color: var(--navy); }
+.cam-header-info p { font-size: 13px; color: var(--muted); }
+.cam-code {
+  display: inline-block;
+  background: rgba(0,0,0,.08);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  font-family: monospace;
+}
+.cam-body { padding: 24px; }
+.cam-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+/* ─── SPEC TABLE ─────────────────────────────────────────── */
+.spec-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.spec-table th {
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+.spec-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.spec-table tr:nth-child(even) td { background: #f8fafc; }
+.spec-table tr:last-child td { border-bottom: none; }
+.spec-val { font-weight: 700; color: var(--blue); }
+.spec-explain { color: var(--muted); font-size: 12px; }
+
+/* ─── AI FEATURES ────────────────────────────────────────── */
+.ai-card {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--blue);
+}
+.ai-card:last-child { margin-bottom: 0; }
+.ai-title { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+.ai-desc { font-size: 13px; color: var(--text); }
+
+/* ─── SCRIPT QUOTE ──────────────────────────────────────── */
+.script-quote {
+  background: #f0fdf4;
+  border-left: 4px solid var(--green);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 16px 20px;
+  margin-top: 18px;
+}
+.script-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.script-text {
+  font-size: 14px;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+/* ─── HIGHLIGHT BOX ─────────────────────────────────────── */
+.highlight-box {
+  background: var(--orange-lt);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 14px 0;
+}
+.highlight-box strong { color: var(--orange); }
+.info-box {
+  background: #eff6ff;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 14px 0;
+}
+
+/* ─── COMPARE TABLE ─────────────────────────────────────── */
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 18px 0; }
+.compare-table th {
+  background: var(--navy);
+  color: #fff;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 13px;
+}
+.compare-table th:not(:first-child) { text-align: center; }
+.compare-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.compare-table td:not(:first-child) { text-align: center; }
+.compare-table tr:nth-child(even) td { background: #f8fafc; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table .label-col { font-weight: 600; color: var(--navy); }
+.c-yes { color: var(--green); font-weight: 700; }
+.c-no  { color: var(--muted); }
+.c-hl  { color: var(--blue); font-weight: 700; }
+
+/* ─── FEATURE GRID ──────────────────────────────────────── */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 14px 0;
+}
+.feat-item {
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.feat-icon { font-size: 24px; }
+.feat-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+.feat-desc { font-size: 12px; color: var(--muted); }
+
+/* ─── CLOUD ADVANTAGE ───────────────────────────────────── */
+.cloud-card {
+  background: linear-gradient(135deg, #0f172a, #1e3a5f);
+  border-radius: var(--radius);
+  padding: 28px;
+  color: #fff;
+  margin: 18px 0;
+}
+.cloud-title { font-size: 18px; font-weight: 800; margin-bottom: 18px; }
+.cloud-title span { color: var(--accent); }
+.cloud-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+.cloud-item {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+.cloud-item .ci-icon { font-size: 22px; margin-bottom: 6px; }
+.cloud-item .ci-name { font-size: 13px; font-weight: 700; color: #fff; }
+.cloud-item .ci-desc { font-size: 12px; color: rgba(255,255,255,.65); margin-top: 4px; }
+
+/* ─── PRICE CARDS ────────────────────────────────────────── */
+.price-spotlight {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.price-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  border-top: 4px solid var(--border);
+  position: relative;
+  transition: box-shadow .2s, transform .2s;
+}
+.price-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.price-card.popular { border-top-color: var(--accent); }
+.price-card .pop-badge {
+  position: absolute;
+  top: -1px; right: 14px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 0 0 8px 8px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.pc-type { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin-bottom: 6px; }
+.pc-name { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+.pc-price { font-size: 30px; font-weight: 900; color: var(--blue); line-height: 1; }
+.pc-unit { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.pc-desc { font-size: 12.5px; color: var(--muted); margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
+
+/* ─── PRICE TABLE ────────────────────────────────────────── */
+.price-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 14px 0; }
+.price-table thead th {
+  background: var(--primary);
+  color: #fff;
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 12.5px;
+}
+.price-table thead th:not(:first-child) { text-align: right; }
+.price-table tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.price-table tbody td:not(:first-child) { text-align: right; font-weight: 600; }
+.price-table tbody tr:nth-child(even) td { background: #f8fafc; }
+.price-table tbody tr:last-child td { border-bottom: none; }
+.price-table tfoot td {
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 2px solid var(--border);
+  font-style: italic;
+}
+.pt-name { font-weight: 600; color: var(--navy); }
+.pt-content { font-size: 12px; color: var(--muted); }
+.pt-price { color: var(--blue); }
+
+/* ─── BANNER ─────────────────────────────────────────────── */
+.promo-banner {
+  background: linear-gradient(135deg, #003087, #0066CC);
+  border-radius: var(--radius);
+  padding: 22px 28px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.promo-banner .pb-icon { font-size: 36px; }
+.promo-items { display: flex; gap: 20px; flex-wrap: wrap; flex: 1; }
+.promo-item {
+  background: rgba(255,255,255,.12);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 160px;
+}
+.promo-item .pi-check { color: #4ade80; font-size: 18px; }
+.promo-item .pi-text { font-size: 13.5px; font-weight: 600; }
+
+/* ─── WARRANTY ───────────────────────────────────────────── */
+.warranty-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 14px 0;
+}
+.warranty-card {
+  border-radius: var(--radius-sm);
+  padding: 18px;
+}
+.warranty-card.good { background: #f0fdf4; border: 2px solid var(--green); }
+.warranty-card.basic { background: #fefce8; border: 2px solid #eab308; }
+.wc-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+.good .wc-label { color: var(--green); }
+.basic .wc-label { color: #a16207; }
+.wc-title { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+.wc-desc { font-size: 13px; color: var(--muted); }
+
+/* ─── TTN CARDS ──────────────────────────────────────────── */
+.ttn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 16px 0;
+}
+.ttn-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  border: 2px solid var(--border);
+}
+.ttn-icon { font-size: 32px; margin-bottom: 10px; }
+.ttn-name { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.ttn-content { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.ttn-price { font-size: 22px; font-weight: 900; color: var(--orange); }
+.ttn-once { font-size: 12px; color: var(--muted); }
+.ttn-bh { font-size: 12px; color: #a16207; margin-top: 8px; font-style: italic; }
+
+/* ─── TOOL SECTION ───────────────────────────────────────── */
+.tool-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  margin: 20px 0;
+  border: 2px solid var(--border);
+}
+.tool-header {
+  padding: 22px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.tool-header.blue-bg { background: linear-gradient(135deg, #eff6ff, #dbeafe); border-bottom: 1px solid #bfdbfe; }
+.tool-header.green-bg { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-bottom: 1px solid #bbf7d0; }
+.tool-icon-wrap {
+  width: 60px; height: 60px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+  flex-shrink: 0;
+}
+.blue-bg .tool-icon-wrap { background: var(--blue); }
+.green-bg .tool-icon-wrap { background: var(--green); }
+.tool-header-info h3 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+.tool-header-info p { font-size: 13.5px; color: var(--muted); }
+.tool-version {
+  margin-top: 8px;
+  display: inline-block;
+  background: rgba(0,0,0,.07);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy);
+  font-family: monospace;
+}
+.tool-body { padding: 24px 28px; }
+.tool-open-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 8px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+  margin-top: 10px;
+}
+.tool-open-btn:hover { background: var(--primary); transform: translateX(2px); text-decoration: none; }
+.tool-open-btn.green { background: var(--green); }
+.tool-open-btn.green:hover { background: #059669; }
+
+/* ─── STEPS ──────────────────────────────────────────────── */
+.steps { display: flex; flex-direction: column; gap: 14px; margin: 14px 0; }
+.step { display: flex; gap: 16px; align-items: flex-start; }
+.step-num {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-info h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+.step-info p { font-size: 13px; color: var(--muted); }
+
+/* ─── CALL TIMELINE ─────────────────────────────────────── */
+.call-timeline { margin: 16px 0; }
+.ct-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.ct-item:last-child { border-bottom: none; }
+.ct-time {
+  min-width: 90px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  padding-top: 2px;
+}
+.ct-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+.ct-content h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.ct-content p { font-size: 13px; color: var(--muted); }
+.ct-content .ct-goal {
+  display: inline-block;
+  background: #eff6ff;
+  color: var(--blue);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* ─── OBJECTION CARDS ───────────────────────────────────── */
+.obj-card {
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  border-left: 4px solid var(--orange);
+}
+.obj-q { font-size: 14px; font-weight: 700; color: var(--orange); margin-bottom: 10px; }
+.obj-a { font-size: 13.5px; color: var(--text); font-style: italic; line-height: 1.7; }
+.obj-tip { font-size: 12px; color: var(--muted); margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px; }
+
+/* ─── QUICK REF TABLE ───────────────────────────────────── */
+.ref-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 14px 0; }
+.ref-table th {
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 12.5px;
+}
+.ref-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.ref-table tr:nth-child(even) td { background: #f8fafc; }
+.ref-table tr:last-child td { border-bottom: none; }
+
+/* ─── TIPS ───────────────────────────────────────────────── */
+.tips-list { list-style: none; margin: 14px 0; }
+.tips-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.tips-list li .tip-icon { font-size: 20px; flex-shrink: 0; }
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.7);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 13px;
+  margin-top: 40px;
+}
+footer a { color: var(--accent); }
+.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.footer-links a {
+  color: rgba(255,255,255,.7);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .15s;
+}
+.footer-links a:hover { color: #fff; }
+.footer-hotline {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ─── DIVIDER ────────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 2px solid var(--border);
+  margin: 28px 0;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  main { padding: 20px 14px 48px; }
+  .hero { padding: 28px 22px; }
+  .hero-title { font-size: 22px; }
+  .cam-grid { grid-template-columns: 1fr; }
+  .card-grid-3 { grid-template-columns: 1fr; }
+  .card-grid-2 { grid-template-columns: 1fr; }
+  .ttn-grid { grid-template-columns: 1fr; }
+  .warranty-grid { grid-template-columns: 1fr; }
+  .price-spotlight { grid-template-columns: repeat(2, 1fr); }
+  .promo-banner { flex-direction: column; }
+  .promo-items { flex-direction: column; }
+  .tool-header { flex-direction: column; }
+  header { height: auto; padding: 12px 16px; }
+  .header-badge { display: none; }
+  .tab-btn { min-width: 110px; padding: 12px 12px; font-size: 13px; }
+  .tab-bar { top: 56px; }
+}
+
+/* ─── PRINT ──────────────────────────────────────────────── */
+@media print {
+  header, .tab-bar, footer { display: none !important; }
+  .section { display: block !important; }
+  main { max-width: 100%; padding: 0; }
+  .section-heading { page-break-before: always; }
+  .cam-block, .card, .price-card { break-inside: avoid; }
+}
+
+/* ─── ANIMATE SECTION CHANGE ────────────────────────────── */
+.section.active { animation: fadeIn .25s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════════════════════════ -->
+<header>
+  <div class="header-brand">
+    <div class="header-logo">📷</div>
+    <div>
+      <div class="header-title">VNPT Smart Camera</div>
+      <div class="header-sub">Quickwin 45 phút · 3 phần × 15 phút</div>
+    </div>
+  </div>
+  <div class="header-badge">📚 Phòng Nghiệp vụ Đào tạo · T5/2026</div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB NAVIGATION
+     ══════════════════════════════════════════════════════════ -->
+<nav class="tab-bar" id="tabBar">
+  <button class="tab-btn active" data-target="s1" onclick="switchTab(this)">
+    <span class="tab-num">1</span>
+    <span>📷 Tính năng Camera</span>
+    <span class="tab-min">· 15 phút</span>
+  </button>
+  <button class="tab-btn" data-target="s2" onclick="switchTab(this)">
+    <span class="tab-num">2</span>
+    <span>💰 Gói cước</span>
+    <span class="tab-min">· 15 phút</span>
+  </button>
+  <button class="tab-btn" data-target="s3" onclick="switchTab(this)">
+    <span class="tab-num">3</span>
+    <span>🔧 Công cụ hỗ trợ</span>
+    <span class="tab-min">· 15 phút</span>
+  </button>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 1: TÍNH NĂNG CAMERA
+     ══════════════════════════════════════════════════════════ -->
+<section id="s1" class="section active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">💡 Triết lý sản phẩm</div>
+    <div class="hero-title">"Người bảo vệ <em>không ồn ào</em>"</div>
+    <div class="hero-desc">
+      Smart Camera VNPT không đơn thuần là thiết bị ghi hình — đây là <strong style="color:#7dd3fc">người bạn đồng hành thầm lặng</strong>,
+      luôn hiện diện nhưng không làm phiền, chỉ lên tiếng khi thực sự cần thiết.
+    </div>
+    <div class="hero-motto">
+      🎯 Câu thần chú khi tư vấn: <em>"Em không bán camera, em bán sự bình an cho anh/chị khi không ở nhà."</em>
+    </div>
+  </div>
+
+  <!-- NỖI LO → GIẢI PHÁP -->
+  <div class="sub-heading">😟 Nỗi lo của khách hàng → ✅ Giải pháp</div>
+  <div class="card-grid">
+    <div class="need-card">
+      <div class="need-q">❓ "Nhà có an toàn không khi mình đi vắng?"</div>
+      <div class="need-a">→ <strong>Xem trực tiếp 24/7</strong> mọi nơi trên điện thoại</div>
+    </div>
+    <div class="need-card">
+      <div class="need-q">❓ "Con đi học về chưa? Người giúp việc làm gì?"</div>
+      <div class="need-a">→ <strong>Thông báo tức thời</strong> khi phát hiện người vào nhà</div>
+    </div>
+    <div class="need-card">
+      <div class="need-q">❓ "Có trộm vào cổng không? Sân vườn có an toàn không?"</div>
+      <div class="need-a">→ Camera ngoài trời, <strong>hồng ngoại 30m</strong>, chống mưa IP66</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- 3 TẦNG GIÁ TRỊ -->
+  <div class="section-heading">🏆 Mô hình 3 Tầng Giá Trị</div>
+  <div class="card-grid-3">
+    <div class="tier-card tier-1">
+      <div class="tier-label">Tầng 1 · Core Benefit</div>
+      <div class="tier-name">🧠 Giá trị Cốt lõi<br/>— Giải quyết nỗi lo tâm lý</div>
+      <ul class="tier-list">
+        <li>❤️ KH mua "sự an tâm" chứ không mua thiết bị</li>
+        <li>🧘 Duy trì sự kiểm soát & bình an tâm trí</li>
+        <li>🏠 "Mắt thần" giúp phản ứng kịp thời mọi tình huống</li>
+      </ul>
+    </div>
+    <div class="tier-card tier-2">
+      <div class="tier-label">Tầng 2 · Actual Product</div>
+      <div class="tier-name">⚙️ Giá trị Hiện thực<br/>— Nền tảng kỹ thuật</div>
+      <ul class="tier-list">
+        <li>📺 Độ phân giải <strong>2K</strong> (vượt Full HD 1080p)</li>
+        <li>📶 Kết nối Wi-Fi ổn định qua FiberVNN</li>
+        <li>📱 App OneHome mượt mà, dễ dùng</li>
+        <li>⚡ Video không giật lag — đường truyền nội địa</li>
+      </ul>
+    </div>
+    <div class="tier-card tier-3">
+      <div class="tier-badge">🏆 Vũ khí mạnh nhất</div>
+      <div class="tier-label">Tầng 3 · Augmented Product</div>
+      <div class="tier-name">🛡️ Giá trị Bổ sung<br/>— Dịch vụ & Hậu mãi</div>
+      <ul class="tier-list">
+        <li>🔧 Lắp đặt miễn phí, KTV làm A-Z tại nhà</li>
+        <li>♾️ Bảo hành <strong>trọn đời</strong>, 1 đổi 1 tại nhà</li>
+        <li>📞 Hỗ trợ 24/7 — 18001166</li>
+        <li>🔒 Server tại Việt Nam — tuân thủ Luật ANMM</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <strong>⚡ Điểm khác biệt quyết định:</strong> Đây là thứ Xiaomi, Ezviz, Imou KHÔNG THỂ cung cấp — bảo hành trọn đời tại nhà và server dữ liệu nội địa.
+  </div>
+
+  <hr class="divider" />
+
+  <!-- CAMERA INDOOR -->
+  <div class="section-heading">📷 Camera Indoor</div>
+  <div class="cam-block">
+    <div class="cam-header indoor">
+      <div class="cam-icon">📷</div>
+      <div class="cam-header-info">
+        <h3>VNPT Smart Camera Indoor</h3>
+        <p>Camera giám sát trong nhà · Xoay 360° · Hồng ngoại 10m</p>
+        <span class="cam-code">IS310P</span>
+      </div>
+    </div>
+    <div class="cam-body">
+      <div class="cam-grid">
+        <div>
+          <div class="sub-heading-sm">📐 Thông số kỹ thuật</div>
+          <table class="spec-table">
+            <thead><tr><th>Thông số</th><th>Giá trị</th><th>Ý nghĩa thực tế</th></tr></thead>
+            <tbody>
+              <tr><td>Cảm biến</td><td class="spec-val">CMOS 1/2.8"</td><td class="spec-explain">3MP — nét hơn camera thường</td></tr>
+              <tr><td>Độ phân giải</td><td class="spec-val">2K (2304×1296)</td><td class="spec-explain">Zoom vẫn thấy rõ khuôn mặt</td></tr>
+              <tr><td>Góc quan sát</td><td class="spec-val">88.7° (chéo)</td><td class="spec-explain">Bao quát cả căn phòng</td></tr>
+              <tr><td>Pan / Tilt</td><td class="spec-val">350° / 100°</td><td class="spec-explain">Gần như 360°, không điểm mù</td></tr>
+              <tr><td>Hồng ngoại</td><td class="spec-val">10 mét</td><td class="spec-explain">Nhìn rõ ban đêm, không cần đèn</td></tr>
+              <tr><td>Chống ngược sáng</td><td class="spec-val">WDR thực</td><td class="spec-explain">Thấy rõ khi lắp hướng cửa sổ</td></tr>
+              <tr><td>Chống nhiễu</td><td class="spec-val">3DNR</td><td class="spec-explain">Hình ban đêm mịn, không bị hạt</td></tr>
+              <tr><td>Kết nối</td><td class="spec-val">Wi-Fi 2.4GHz</td><td class="spec-explain">Kết nối trực tiếp với router</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div class="sub-heading-sm">🤖 Tính năng AI nổi bật</div>
+          <div class="ai-card">
+            <div class="ai-title">🏃 Motion Tracking — Bám theo chuyển động</div>
+            <div class="ai-desc">Camera tự động xoay theo người di chuyển. Ghi lại toàn bộ hành trình, không bỏ lỡ khoảnh khắc nào.</div>
+          </div>
+          <div class="ai-card">
+            <div class="ai-title">👤 Human Detection — Phân biệt người và vật</div>
+            <div class="ai-desc">Lọc bỏ cảnh báo giả do chó mèo, rèm bay, thay đổi ánh sáng. Chỉ báo khi có người thực sự.</div>
+          </div>
+          <div class="ai-card">
+            <div class="ai-title">🔊 Abnormal Sound Detection — Phát hiện âm thanh bất thường</div>
+            <div class="ai-desc">Nhận diện tiếng kính vỡ, đồ rơi mạnh, trẻ khóc → gửi cảnh báo khẩn ngay lập tức.</div>
+          </div>
+
+          <div class="sub-heading-sm" style="margin-top:20px">🔒 Lưu trữ</div>
+          <div style="font-size:13px;color:var(--muted)">
+            <p>🃏 <strong>Thẻ nhớ</strong> (tối đa 256GB) — lưu liên tục theo dung lượng</p>
+            <p style="margin-top:6px">☁️ <strong>Cloud VNPT</strong> — lưu 7 / 15 / 30 ngày gần nhất (chỉ lưu khi có chuyển động)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="script-quote">
+        <div class="script-label">💬 Script tư vấn tham khảo · Indoor</div>
+        <div class="script-text">"Camera indoor này xoay được 360° anh/chị ơi. Mình chỉ cần đặt 1 cái giữa phòng khách là bao quát hết toàn bộ không gian, camera tự xoay theo người đi lại. Ban đêm vẫn thấy rõ 10 mét không cần bật đèn. AI còn phân biệt được người với chó mèo nên không bị báo loạn anh/chị ơi."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAMERA OUTDOOR -->
+  <div class="section-heading" style="margin-top:32px">🌿 Camera Outdoor</div>
+  <div class="cam-block">
+    <div class="cam-header outdoor">
+      <div class="cam-icon">🌿</div>
+      <div class="cam-header-info">
+        <h3>VNPT Smart Camera Outdoor</h3>
+        <p>Camera giám sát ngoài trời · IP66 · Hồng ngoại 30m · Cổng LAN</p>
+        <span class="cam-code">ES311P</span>
+      </div>
+    </div>
+    <div class="cam-body">
+      <div class="cam-grid">
+        <div>
+          <div class="sub-heading-sm">📐 Thông số kỹ thuật</div>
+          <table class="spec-table">
+            <thead><tr><th>Thông số</th><th>Giá trị</th><th>Ý nghĩa thực tế</th></tr></thead>
+            <tbody>
+              <tr><td>Độ phân giải</td><td class="spec-val">2K (2304×1296)</td><td class="spec-explain">Tương đương Indoor — sắc nét</td></tr>
+              <tr><td>Hồng ngoại</td><td class="spec-val">30 mét</td><td class="spec-explain">Gấp 3× Indoor — bao quát sân vườn</td></tr>
+              <tr><td>Khẩu độ</td><td class="spec-val">F/2.0</td><td class="spec-explain">Sáng hơn Indoor F/2.2 — hình chiều tà đẹp</td></tr>
+              <tr><td>Chống nước/bụi</td><td class="spec-val">IP66</td><td class="spec-explain">Tắm mưa cả ngày vẫn ok</td></tr>
+              <tr><td>Nhiệt độ</td><td class="spec-val">0°C – 45°C</td><td class="spec-explain">Phù hợp khí hậu Việt Nam</td></tr>
+              <tr><td>Kết nối</td><td class="spec-val">Wi-Fi + LAN RJ45</td><td class="spec-explain">Dây LAN khi xa router — ổn định hơn</td></tr>
+              <tr><td>AI</td><td class="spec-val">Human Detection</td><td class="spec-explain">Phát hiện người xâm nhập từ xa</td></tr>
+            </tbody>
+          </table>
+          <div class="highlight-box" style="margin-top:14px">
+            <strong>⚡ Lưu ý lắp đặt:</strong> Ưu tiên dùng dây LAN cho Outdoor khi vị trí xa router — tránh giật lag video 2K.
+          </div>
+        </div>
+        <div>
+          <div class="sub-heading-sm">🔑 Điểm mạnh so với Indoor</div>
+          <div class="feat-grid">
+            <div class="feat-item">
+              <div class="feat-icon">🌧️</div>
+              <div class="feat-name">IP66 chống thời tiết</div>
+              <div class="feat-desc">Mưa, bụi, nắng nóng không ảnh hưởng</div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon">🌙</div>
+              <div class="feat-name">Hồng ngoại 30m</div>
+              <div class="feat-desc">Nhìn xa 3× Indoor — đủ cho sân vườn</div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon">🔌</div>
+              <div class="feat-name">Cổng LAN RJ45</div>
+              <div class="feat-desc">Ổn định khi xa router — dây mạng</div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon">📸</div>
+              <div class="feat-name">Khẩu độ F/2.0</div>
+              <div class="feat-desc">Thu sáng tốt hơn — hình hoàng hôn nét</div>
+            </div>
+          </div>
+
+          <div class="script-quote" style="margin-top:18px">
+            <div class="script-label">💬 Script tư vấn tham khảo · Outdoor</div>
+            <div class="script-text">"Camera ngoài trời này chịu mưa hoàn toàn anh/chị ơi, chuẩn IP66 nên tắm mưa cả ngày vẫn ok. Hồng ngoại nhìn xa 30 mét nên dù sân rộng hay ngõ tối vẫn thấy rõ người đi vào từ xa. Còn nếu nhà xa wifi, mình đi thêm dây mạng vào là hình ảnh cực nét, không giật."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- BẢNG SO SÁNH -->
+  <div class="section-heading">⚖️ So sánh Indoor vs Outdoor</div>
+  <div class="card">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Tiêu chí</th>
+          <th>🏠 Indoor IS310P</th>
+          <th>🌿 Outdoor ES311P</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label-col">Vị trí lắp</td><td>Phòng khách, phòng ngủ, cửa hàng</td><td>Cổng, sân, hành lang ngoài, bãi xe</td></tr>
+        <tr><td class="label-col">Xoay được?</td><td class="c-yes">✅ Pan 350°, Tilt 100°</td><td class="c-no">❌ Góc cố định</td></tr>
+        <tr><td class="label-col">Hồng ngoại</td><td>10 mét</td><td class="c-hl">30 mét (gấp 3×)</td></tr>
+        <tr><td class="label-col">Chống nước/bụi</td><td class="c-no">❌ Chỉ dùng trong nhà</td><td class="c-yes">✅ IP66 — chịu mưa lớn</td></tr>
+        <tr><td class="label-col">Khẩu độ ống kính</td><td>F/2.2</td><td class="c-hl">F/2.0 — sáng hơn</td></tr>
+        <tr><td class="label-col">Kết nối mạng</td><td>Wi-Fi 2.4GHz</td><td class="c-hl">Wi-Fi + Cổng LAN RJ45</td></tr>
+        <tr><td class="label-col">AI đặc trưng</td><td>Motion Tracking + Sound Detection</td><td>Human Detection từ xa</td></tr>
+        <tr><td class="label-col">Giá thẻ nhớ 64G</td><td class="c-hl">30.000đ/tháng</td><td>50.000đ/tháng</td></tr>
+        <tr><td class="label-col">Giá Cloud 7 ngày</td><td>40.000đ/tháng</td><td>60.000đ/tháng</td></tr>
+      </tbody>
+    </table>
+    <div class="info-box" style="margin-top:14px">
+      <strong>💡 Công thức nhanh:</strong> Indoor cho <strong>trong nhà</strong> (linh hoạt 360°) — Outdoor cho <strong>ngoài trời</strong> (bền bỉ, nhìn xa). Nhà cần cả hai? → Gói Pack 1In + 1Out chỉ 66.000đ/tháng.
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ONEHOME + CLOUD -->
+  <div class="section-heading">📱 Hệ sinh thái OneHome + Cloud VNPT</div>
+
+  <div class="sub-heading">📱 App OneHome — Trung tâm điều khiển</div>
+  <div class="info-box">App riêng của VNPT, <strong>không phải app OEM</strong> chung như Ezviz hay Imou. Quản lý tập trung Camera + WiFi Mesh + toàn bộ thiết bị Smart Home.</div>
+  <div class="feat-grid">
+    <div class="feat-item">
+      <div class="feat-icon">📹</div>
+      <div class="feat-name">Live View</div>
+      <div class="feat-desc">Xem nhiều camera cùng lúc trên 1 màn hình</div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">⏪</div>
+      <div class="feat-name">Playback thông minh</div>
+      <div class="feat-desc">Timeline màu — tìm lại sự kiện trong vài giây</div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🔔</div>
+      <div class="feat-name">Cảnh báo tức thì</div>
+      <div class="feat-desc">Push notification kèm ảnh chụp nhanh</div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🗓️</div>
+      <div class="feat-name">Lịch thông báo</div>
+      <div class="feat-desc">Chỉ nhận báo ban đêm hoặc khi đi vắng</div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">👨‍👩‍👧‍👦</div>
+      <div class="feat-name">Chia sẻ gia đình</div>
+      <div class="feat-desc">Tối đa 4 tài khoản xem đồng thời</div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🎙️</div>
+      <div class="feat-name">Giọng nói & Đàm thoại</div>
+      <div class="feat-desc">Nói chuyện 2 chiều qua camera</div>
+    </div>
+  </div>
+
+  <div class="cloud-card">
+    <div class="cloud-title">🔒 VNPT Cloud — Lợi thế <span>"Chủ quyền dữ liệu"</span></div>
+    <div class="cloud-grid">
+      <div class="cloud-item">
+        <div class="ci-icon">🇻🇳</div>
+        <div class="ci-name">Server tại Việt Nam</div>
+        <div class="ci-desc">Tuân thủ Luật An ninh mạng, data không ra nước ngoài</div>
+      </div>
+      <div class="cloud-item">
+        <div class="ci-icon">🔐</div>
+        <div class="ci-name">Mã hóa đầu cuối TLS</div>
+        <div class="ci-desc">Tin tặc chặn gói tin cũng không đọc được</div>
+      </div>
+      <div class="cloud-item">
+        <div class="ci-icon">⚡</div>
+        <div class="ci-name">Độ trễ cực thấp</div>
+        <div class="ci-desc">Server trong nước — xem mượt kể cả khi đứt cáp biển</div>
+      </div>
+      <div class="cloud-item">
+        <div class="ci-icon">🏗️</div>
+        <div class="ci-name">IDC chuẩn Tier 3</div>
+        <div class="ci-desc">Trung tâm dữ liệu đạt chuẩn quốc tế, uptime cao</div>
+      </div>
+    </div>
+  </div>
+
+</section><!-- /s1 -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 2: GÓI CƯỚC
+     ══════════════════════════════════════════════════════════ -->
+<section id="s2" class="section">
+
+  <!-- PROMO BANNER -->
+  <div class="promo-banner">
+    <div class="pb-icon">🎁</div>
+    <div class="promo-items">
+      <div class="promo-item">
+        <span class="pi-check">✅</span>
+        <span class="pi-text">Miễn phí lắp đặt &amp; cài đặt</span>
+      </div>
+      <div class="promo-item">
+        <span class="pi-check">✅</span>
+        <span class="pi-text">Đăng ký 12 tháng → tặng 1 tháng</span>
+      </div>
+      <div class="promo-item">
+        <span class="pi-check">✅</span>
+        <span class="pi-text">Đăng ký 6 tháng → tặng 1 tháng</span>
+      </div>
+      <div class="promo-item">
+        <span class="pi-check">✅</span>
+        <span class="pi-text">Bảo hành trọn đời — 1 đổi 1 tại nhà</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIÁ NỔI BẬT -->
+  <div class="section-heading">⭐ Gói cước phổ biến nhất</div>
+  <div class="price-spotlight">
+    <div class="price-card popular">
+      <div class="pop-badge">Phổ biến</div>
+      <div class="pc-type">Camera Indoor</div>
+      <div class="pc-name">Indoor + Thẻ nhớ 64G</div>
+      <div class="pc-price">30k</div>
+      <div class="pc-unit">/ tháng · có VAT</div>
+      <div class="pc-desc">01 Camera IS310P + Thẻ nhớ 64GB<br/>Lưu trữ theo dung lượng thẻ</div>
+    </div>
+    <div class="price-card">
+      <div class="pc-type">Camera Indoor</div>
+      <div class="pc-name">Indoor + Cloud 7 ngày</div>
+      <div class="pc-price">40k</div>
+      <div class="pc-unit">/ tháng · có VAT</div>
+      <div class="pc-desc">01 Camera IS310P + Cloud 7 ngày<br/>Xem lại 7 ngày gần nhất</div>
+    </div>
+    <div class="price-card popular">
+      <div class="pop-badge">Phổ biến</div>
+      <div class="pc-type">Camera Outdoor</div>
+      <div class="pc-name">Outdoor + Thẻ nhớ 64G</div>
+      <div class="pc-price">50k</div>
+      <div class="pc-unit">/ tháng · có VAT</div>
+      <div class="pc-desc">01 Camera ES311P + Thẻ nhớ 64GB<br/>Lưu trữ theo dung lượng thẻ</div>
+    </div>
+    <div class="price-card">
+      <div class="pc-type">Camera Outdoor</div>
+      <div class="pc-name">Outdoor + Cloud 7 ngày</div>
+      <div class="pc-price">60k</div>
+      <div class="pc-unit">/ tháng · có VAT</div>
+      <div class="pc-desc">01 Camera ES311P + Cloud 7 ngày<br/>Xem lại 7 ngày gần nhất</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- BẢNG GIÁ ĐẦY ĐỦ INDOOR -->
+  <div class="section-heading">📷 Bảng giá Indoor đầy đủ</div>
+  <div class="card">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Tên gói</th>
+          <th>Nội dung</th>
+          <th>1 tháng</th>
+          <th>3 tháng</th>
+          <th>6 tháng</th>
+          <th>12–13 tháng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pt-name">Indoor + Thẻ 64G</td>
+          <td class="pt-content">01 IS310P + Thẻ nhớ 64GB</td>
+          <td class="pt-price">30.000</td>
+          <td class="pt-price">90.000</td>
+          <td class="pt-price">180.000</td>
+          <td class="pt-price">360.000</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Indoor + Cloud 7</td>
+          <td class="pt-content">01 IS310P + Cloud 7 ngày</td>
+          <td class="pt-price">40.000</td>
+          <td class="pt-price">120.000</td>
+          <td class="pt-price">240.000</td>
+          <td class="pt-price">480.000</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Indoor + Cloud 15</td>
+          <td class="pt-content">01 IS310P + Cloud 15 ngày</td>
+          <td class="pt-price">60.000</td>
+          <td class="pt-price">180.000</td>
+          <td class="pt-price">360.000</td>
+          <td class="pt-price">720.000</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Indoor + Cloud 30</td>
+          <td class="pt-content">01 IS310P + Cloud 30 ngày</td>
+          <td class="pt-price">90.000</td>
+          <td class="pt-price">270.000</td>
+          <td class="pt-price">540.000</td>
+          <td class="pt-price">1.080.000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="6">💡 Giá đã bao gồm VAT · Chu kỳ 12 tháng = tặng thêm 1 tháng (dùng 13 tháng)</td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- BẢNG GIÁ ĐẦY ĐỦ OUTDOOR -->
+  <div class="section-heading" style="margin-top:28px">🌿 Bảng giá Outdoor đầy đủ</div>
+  <div class="card">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Tên gói</th>
+          <th>Nội dung</th>
+          <th>1 tháng</th>
+          <th>3 tháng</th>
+          <th>6 tháng</th>
+          <th>12–13 tháng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pt-name">Outdoor + Thẻ 64G</td>
+          <td class="pt-content">01 ES311P + Thẻ nhớ 64GB</td>
+          <td class="pt-price">50.000</td>
+          <td class="pt-price">150.000</td>
+          <td class="pt-price">300.000</td>
+          <td class="pt-price">600.000</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Outdoor + Cloud 7</td>
+          <td class="pt-content">01 ES311P + Cloud 7 ngày</td>
+          <td class="pt-price">60.000</td>
+          <td class="pt-price">180.000</td>
+          <td class="pt-price">360.000</td>
+          <td class="pt-price">720.000</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Outdoor + Cloud 15</td>
+          <td class="pt-content">01 ES311P + Cloud 15 ngày</td>
+          <td class="pt-price">80.000</td>
+          <td class="pt-price">240.000</td>
+          <td class="pt-price">480.000</td>
+          <td class="pt-price">960.000</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Outdoor + Cloud 30</td>
+          <td class="pt-content">01 ES311P + Cloud 30 ngày</td>
+          <td class="pt-price">110.000</td>
+          <td class="pt-price">330.000</td>
+          <td class="pt-price">660.000</td>
+          <td class="pt-price">1.320.000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="6">💡 Giá đã bao gồm VAT · Chu kỳ 6 tháng = tặng thêm 1 tháng (dùng 7 tháng)</td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PACK NHIỀU CAM -->
+  <div class="section-heading">📦 Gói Pack nhiều Camera (cho cửa hàng / văn phòng)</div>
+  <div class="card">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Gói</th>
+          <th>Nội dung</th>
+          <th>1 tháng</th>
+          <th>Giá / Cam</th>
+          <th>Tiết kiệm</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pt-name">Pack 01 Indoor</td>
+          <td class="pt-content">01 Camera Indoor + Cloud 3 ngày</td>
+          <td class="pt-price">30.000</td>
+          <td>30.000đ/cam</td>
+          <td class="c-muted">—</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Pack 03 Indoor</td>
+          <td class="pt-content">03 Camera Indoor + Cloud 3 ngày</td>
+          <td class="pt-price">80.000</td>
+          <td class="c-hl">~26.700đ/cam</td>
+          <td class="c-yes">↓ 3.300đ/cam</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Pack 05 Indoor</td>
+          <td class="pt-content">05 Camera Indoor + Cloud 3 ngày</td>
+          <td class="pt-price">130.000</td>
+          <td class="c-hl">26.000đ/cam</td>
+          <td class="c-yes">↓ 4.000đ/cam</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Pack 10 Indoor</td>
+          <td class="pt-content">10 Camera Indoor + Cloud 3 ngày</td>
+          <td class="pt-price">250.000</td>
+          <td class="c-hl">25.000đ/cam</td>
+          <td class="c-yes">↓ 5.000đ/cam</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Pack 01 Outdoor</td>
+          <td class="pt-content">01 Camera Outdoor + Cloud 3 ngày</td>
+          <td class="pt-price">40.000</td>
+          <td>40.000đ/cam</td>
+          <td class="c-muted">—</td>
+        </tr>
+        <tr>
+          <td class="pt-name">Pack 1In + 1Out</td>
+          <td class="pt-content">01 Indoor + 01 Outdoor + 02 Cloud 3 ngày</td>
+          <td class="pt-price">66.000</td>
+          <td class="c-hl">33.000đ/cam</td>
+          <td class="c-yes">Tiết kiệm 14k</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="5">☁️ Cloud 3 ngày trong gói Pack: chỉ lưu khi có chuyển động bất thường, tối đa 3 ngày gần nhất</td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- TTN MUA ĐỨT -->
+  <div class="section-heading">💳 Mua đứt — Thanh toán một lần (TTN)</div>
+  <div class="info-box">
+    <strong>Chính sách TTN:</strong> KH thanh toán <strong>1 lần duy nhất</strong> khi ký hợp đồng → sở hữu thiết bị → không cần trả lại khi thanh lý hợp đồng. Áp dụng từ 15/4/2025.
+  </div>
+  <div class="ttn-grid">
+    <div class="ttn-card">
+      <div class="ttn-icon">📷</div>
+      <div class="ttn-name">Camera Indoor TTN</div>
+      <div class="ttn-content">01 Camera IS310P<br/>+ 01 Thẻ nhớ 64GB</div>
+      <div class="ttn-price">646.000đ</div>
+      <div class="ttn-once">thanh toán 1 lần · có VAT</div>
+      <div class="ttn-bh">⚠️ Bảo hành: 12 tháng, 1 đổi 1</div>
+    </div>
+    <div class="ttn-card">
+      <div class="ttn-icon">🌿</div>
+      <div class="ttn-name">Camera Outdoor TTN</div>
+      <div class="ttn-content">01 Camera ES311P<br/>+ 01 Thẻ nhớ 64GB</div>
+      <div class="ttn-price">946.000đ</div>
+      <div class="ttn-once">thanh toán 1 lần · có VAT</div>
+      <div class="ttn-bh">⚠️ Bảo hành: 12 tháng, 1 đổi 1</div>
+    </div>
+    <div class="ttn-card">
+      <div class="ttn-icon">📼</div>
+      <div class="ttn-name">Đầu ghi Camera WN883P</div>
+      <div class="ttn-content">01 NVR VNPT WN883P<br/>(Network Video Recorder)</div>
+      <div class="ttn-price">1.870.000đ</div>
+      <div class="ttn-once">thanh toán 1 lần · có VAT</div>
+      <div class="ttn-bh">⚠️ Bảo hành: 12 tháng, tại nhà</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- BẢO HÀNH -->
+  <div class="section-heading">🛡️ Chính sách Bảo hành</div>
+  <div class="warranty-grid">
+    <div class="warranty-card good">
+      <div class="wc-label">✅ Gói thuê bao (Trả sau / Trả trước 6-13 tháng)</div>
+      <div class="wc-title">Bảo hành TRỌN ĐỜI</div>
+      <div class="wc-desc">1 đổi 1 tại nhà, trong suốt vòng đời dịch vụ. Không cần đem thiết bị đi đâu — KTV đến nhà đổi ngay.</div>
+    </div>
+    <div class="warranty-card basic">
+      <div class="wc-label">⚠️ Mua đứt TTN (Trả 1 lần)</div>
+      <div class="wc-title">Bảo hành 12 tháng</div>
+      <div class="wc-desc">1 đổi 1 tại nhà trong 12 tháng đầu. Từ tháng 13: sửa có tính phí, liên hệ Trung tâm bảo hành VNPT Tech.</div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <strong>💡 Cách bán:</strong> Nhấn mạnh bảo hành <strong>trọn đời</strong> với gói thuê bao để khách ưu tiên Cloud thay vì mua đứt TTN. "Anh/chị không lo hỏng hóc gì cả — VNPT đổi mới tại nhà cho mình suốt thời gian dùng dịch vụ ạ."
+  </div>
+
+</section><!-- /s2 -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 3: CÔNG CỤ HỖ TRỢ
+     ══════════════════════════════════════════════════════════ -->
+<section id="s3" class="section">
+
+  <!-- TOOL 1: BÁO GIÁ -->
+  <div class="section-heading">🧾 Công cụ 1: Tạo Báo Giá</div>
+  <div class="tool-card">
+    <div class="tool-header blue-bg">
+      <div class="tool-icon-wrap">🧾</div>
+      <div class="tool-header-info">
+        <h3>Công cụ Tạo Báo Giá Camera VNPT</h3>
+        <p>Tạo ảnh báo giá chuẩn 9:16, gửi ngay qua Zalo cho khách hàng trong cuộc gọi</p>
+        <span class="tool-version">v2.2 · Phòng Nghiệp vụ Đào tạo</span>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div class="sub-heading-sm">📋 Cách sử dụng — 3 bước đơn giản</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-info">
+            <h4>Điền thông tin</h4>
+            <p>Nhập tên KH + SĐT KH · Tên ĐTV + SĐT ĐTV</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-info">
+            <h4>Chọn gói sản phẩm (tối đa 3 gói)</h4>
+            <p>Chọn nhóm: Indoor / Outdoor / Indoor+Outdoor / Mua một lần → Chọn gói cụ thể → Thêm vào báo giá</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-info">
+            <h4>Xuất PNG &amp; Gửi Zalo</h4>
+            <p>Nhấn "Xuất PNG 9:16" → Lưu ảnh → Gửi ngay cho KH qua Zalo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-heading-sm" style="margin-top:20px">📦 Các nhóm gói có trong tool</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:12px 0">
+        <div class="info-box" style="margin:0;padding:12px 14px">
+          <strong>📷 Camera Indoor (8 gói)</strong><br/>
+          <small>Thẻ 64G · Cloud 3 · 7 · 15 · 30 ngày<br/>Pack 01 · 03 · 05 · 10 cam</small>
+        </div>
+        <div class="info-box" style="margin:0;padding:12px 14px">
+          <strong>🌿 Camera Outdoor (5 gói)</strong><br/>
+          <small>Thẻ 64G · Cloud 3 · 7 · 15 · 30 ngày</small>
+        </div>
+        <div class="info-box" style="margin:0;padding:12px 14px">
+          <strong>📷🌿 Combo (1 gói)</strong><br/>
+          <small>Pack 01 Indoor + 01 Outdoor · 66k/tháng</small>
+        </div>
+        <div class="info-box" style="margin:0;padding:12px 14px">
+          <strong>💳 Mua đứt TTN (3 gói)</strong><br/>
+          <small>Indoor 646k · Outdoor 946k · NVR 1.87M</small>
+        </div>
+      </div>
+
+      <a class="tool-open-btn" href="https://baogiacamera.netlify.app/" target="_blank" rel="noopener">
+        🧾 Mở Công cụ Báo Giá →
+      </a>
+    </div>
+  </div>
+
+  <!-- TOOL 2: KỊCH BẢN -->
+  <div class="section-heading" style="margin-top:32px">📞 Công cụ 2: Kịch bản Outbound Telesale</div>
+  <div class="tool-card">
+    <div class="tool-header green-bg">
+      <div class="tool-icon-wrap">📞</div>
+      <div class="tool-header-info">
+        <h3>Kịch bản Outbound Telesale VNPT Smart Camera</h3>
+        <p>Script cuộc gọi 5 phút chuẩn hóa, có ví dụ hội thoại thực tế từng bước</p>
+        <span class="tool-version">v3.1 · Phòng Nghiệp vụ Đào tạo</span>
+      </div>
+    </div>
+    <div class="tool-body">
+
+      <div class="sub-heading-sm">⏱️ Cấu trúc cuộc gọi 5 phút</div>
+      <div class="call-timeline">
+        <div class="ct-item">
+          <div class="ct-time">0:00 – 0:45</div>
+          <div class="ct-dot"></div>
+          <div class="ct-content">
+            <div class="ct-goal">🎯 Mục tiêu: KH đồng ý lắng nghe</div>
+            <h4>Bước 1 — Mở đầu &amp; Tạo thiện cảm</h4>
+            <p>Chào hỏi chuyên nghiệp, cam kết thời gian ngắn ("18 giây thôi ạ"), hỏi KH có thuận tiện nghe không. Nếu bận → đề nghị lịch gọi lại cụ thể.</p>
+          </div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-time">0:45 – 1:45</div>
+          <div class="ct-dot"></div>
+          <div class="ct-content">
+            <div class="ct-goal">🎯 Mục tiêu: KH tự nói ra nỗi lo</div>
+            <h4>Bước 2 — Khai thác nhu cầu</h4>
+            <p>Hỏi mở: "Anh/chị có con nhỏ hay ông bà cao tuổi ở cùng không?" → Phản chiếu lại hoàn cảnh KH → Kích hoạt vấn đề tiềm ẩn tự nhiên.</p>
+          </div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-time">1:45 – 3:00</div>
+          <div class="ct-dot"></div>
+          <div class="ct-content">
+            <div class="ct-goal">🎯 Mục tiêu: KH hình dung được lợi ích</div>
+            <h4>Bước 3 — Giới thiệu giải pháp</h4>
+            <p>Dùng đúng <strong>3 điểm lợi ích</strong> liên kết trực tiếp với vấn đề KH vừa chia sẻ. Quy đổi giá: <strong>"Chỉ 1.000đ/ngày để mang an tâm về nhà."</strong></p>
+          </div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-time">3:00 – 4:15</div>
+          <div class="ct-dot"></div>
+          <div class="ct-content">
+            <div class="ct-goal">🎯 Mục tiêu: Gỡ bỏ rào cản</div>
+            <h4>Bước 4 — Xử lý từ chối</h4>
+            <p>3 tình huống phổ biến nhất (xem bên dưới). Sau mỗi phản hồi: dừng 1–2 giây, để KH phản ứng tự nhiên.</p>
+          </div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-time">4:15 – 5:00</div>
+          <div class="ct-dot"></div>
+          <div class="ct-content">
+            <div class="ct-goal">🎯 Mục tiêu: KH đồng ý bước tiếp theo</div>
+            <h4>Bước 5 — Chốt giao dịch</h4>
+            <p>Tóm tắt 3 lợi ích chính → Chốt nhanh (đặt lịch lắp) hoặc chốt nhẹ (gửi thông tin Zalo). Cuối gọi: xin kết bạn Zalo để chăm sóc sau.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="sub-heading-sm">🚧 3 Tình huống từ chối phổ biến nhất</div>
+      <div class="obj-card">
+        <div class="obj-q">❶ "Để tôi bàn với vợ/chồng đã."</div>
+        <div class="obj-a">"Dạ, em hiểu. Nhưng cho em hỏi, anh nghĩ chị nhà sẽ băn khoăn về điều gì nhất: giá cả, tính năng hay chính sách hậu mãi? Nếu em giúp anh làm rõ điều đó trước, có khi anh không cần hỏi thêm đâu ạ. VNPT có chính sách linh hoạt theo tháng ạ."</div>
+        <div class="obj-tip">💡 Chiến thuật: Xác định băn khoăn cụ thể → giải đáp ngay → giảm vòng quyết định</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-q">❷ "Tốn thêm tiền quá, đang kinh tế khó khăn."</div>
+        <div class="obj-a">"Dạ em hiểu ạ — tiết kiệm là quan trọng. Thực ra chi phí Camera Indoor VNPT mỗi ngày chỉ 1.000đ ạ, nhưng anh có được sự yên tâm suốt cả ngày làm việc — không còn phải nhắn tin hỏi thăm, không lo bất ngờ khi về nhà. Với nhà có con nhỏ thì nhiều anh/chị thấy đây là khoản đầu tư xứng đáng nhất ạ."</div>
+        <div class="obj-tip">💡 Chiến thuật: Quy đổi 30.000đ/tháng → 1.000đ/ngày + kết nối cảm xúc với con cái</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-q">❸ "Tôi không rành công nghệ, lắp vào cũng không biết dùng."</div>
+        <div class="obj-a">"Dạ, câu chuyện của anh làm em nhớ đến bác Minh, một khách hàng em tư vấn tháng trước. Bác Minh cũng có nỗi lo lắng giống anh. Anh chỉ cần mở app OneHome, nhấn một nút là xem được, giao diện giống xem video trên điện thoại bình thường thôi ạ. Kỹ thuật viên VNPT lắp xong sẽ hướng dẫn trực tiếp tại nhà — không để anh/chị tự mày mò đâu ạ."</div>
+        <div class="obj-tip">💡 Chiến thuật: Social proof (kể chuyện KH tương tự) + đơn giản hóa → "nhấn 1 nút là xem"</div>
+      </div>
+
+      <a class="tool-open-btn green" href="https://obcamera.netlify.app/" target="_blank" rel="noopener">
+        📞 Mở Kịch bản Outbound →
+      </a>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- KHI NÀO DÙNG GÌ -->
+  <div class="section-heading">🗺️ Khi nào dùng công cụ nào?</div>
+  <div class="card">
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th>Tình huống trong cuộc gọi</th>
+          <th>Công cụ cần dùng</th>
+          <th>Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Đang gọi, cần script từng bước</td>
+          <td><a href="https://obcamera.netlify.app/" target="_blank">📞 obcamera.netlify.app</a></td>
+          <td>Mở trước khi gọi, dùng song song</td>
+        </tr>
+        <tr>
+          <td>KH đồng ý nghe, cần báo giá ngay</td>
+          <td><a href="https://baogiacamera.netlify.app/" target="_blank">🧾 baogiacamera.netlify.app</a></td>
+          <td>Tạo ảnh PNG → gửi Zalo trong lúc gọi</td>
+        </tr>
+        <tr>
+          <td>KH hỏi giá cụ thể nhiều gói</td>
+          <td>Bảng giá Tab 2 (Gói cước)</td>
+          <td>Tra bảng Indoor / Outdoor / Pack</td>
+        </tr>
+        <tr>
+          <td>KH so sánh với Xiaomi / Ezviz</td>
+          <td>Nhấn mạnh 3 điểm VNPT độc quyền</td>
+          <td>Server VN · Bảo hành trọn đời · KTV tại nhà</td>
+        </tr>
+        <tr>
+          <td>KH từ chối vì giá</td>
+          <td>Tình huống ❷ (xem bên trên)</td>
+          <td>Quy đổi 30k/tháng → 1.000đ/ngày</td>
+        </tr>
+        <tr>
+          <td>KH lo ngại về công nghệ</td>
+          <td>Tình huống ❸ + nhắc hỗ trợ A-Z</td>
+          <td>"Kỹ thuật viên hướng dẫn tại nhà"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-heading" style="margin-top:28px">💡 Tips thực chiến</div>
+  <ul class="tips-list">
+    <li>
+      <span class="tip-icon">⚡</span>
+      <span><strong>Quy đổi giá thành ngày:</strong> 30.000đ/tháng = 1.000đ/ngày. Đây là cách khách hàng dễ chấp nhận nhất khi nghe giá.</span>
+    </li>
+    <li>
+      <span class="tip-icon">📸</span>
+      <span><strong>Gửi báo giá ngay trong cuộc gọi:</strong> Tạo ảnh PNG từ baogiacamera.netlify.app và gửi Zalo khi đang nói chuyện — tăng tỉ lệ chốt sau cuộc gọi rõ rệt.</span>
+    </li>
+    <li>
+      <span class="tip-icon">🎤</span>
+      <span><strong>Phản chiếu hoàn cảnh KH:</strong> Lặp lại đúng từ ngữ KH dùng ("hai bé nhỏ, người giúp việc trông...") trước khi đề xuất giải pháp — tạo kết nối cảm xúc tự nhiên.</span>
+    </li>
+    <li>
+      <span class="tip-icon">⏸️</span>
+      <span><strong>Dừng sau khi xử lý từ chối:</strong> Im lặng 1–2 giây sau khi phản hồi từ chối — để KH phản ứng tự nhiên thay vì bị đẩy tiếp. Đừng vội nói tiếp.</span>
+    </li>
+    <li>
+      <span class="tip-icon">📝</span>
+      <span><strong>Ghi chú CRM đủ 4 mục:</strong> Phản ứng KH từng bước · Từ chối đã gặp · Kết quả (đăng ký/gửi info/gọi lại) · Thời điểm follow-up.</span>
+    </li>
+  </ul>
+
+</section><!-- /s3 -->
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════ -->
+<footer>
+  <div>
+    <div style="color:#fff;font-weight:700;margin-bottom:4px">VNPT Smart Camera · Quickwin 45'</div>
+    <div>Phòng Nghiệp vụ Đào tạo · Nội bộ VNPT · T5/2026</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://baogiacamera.netlify.app/" target="_blank" rel="noopener">🧾 Tạo Báo Giá</a>
+    <a href="https://obcamera.netlify.app/" target="_blank" rel="noopener">📞 Kịch bản Outbound</a>
+  </div>
+  <div class="footer-hotline">📞 18001166</div>
+</footer>
+
+<script>
+/* ─── TAB SWITCHING ──────────────────────────────────────── */
+function switchTab(clickedBtn) {
+  const targetId = clickedBtn.dataset.target;
+
+  // Update buttons
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  clickedBtn.classList.add('active');
+
+  // Update sections
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(targetId).classList.add('active');
+
+  // Scroll to top of content
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ─── KEYBOARD SHORTCUTS ────────────────────────────────── */
+document.addEventListener('keydown', (e) => {
+  const tabs = document.querySelectorAll('.tab-btn');
+  if (e.key === '1') tabs[0]?.click();
+  if (e.key === '2') tabs[1]?.click();
+  if (e.key === '3') tabs[2]?.click();
+});
+</script>
+</body>
+</html>
