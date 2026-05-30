@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VNPT Smart Camera · Quickwin 45'</title>
+<title>VNPT Smart Camera · Cẩm nang tư vấn</title>
 <style>
 /* ─── RESET & TOKENS ─────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -940,7 +940,7 @@ footer a { color: var(--accent); }
     <div class="header-logo">📷</div>
     <div>
       <div class="header-title">VNPT Smart Camera</div>
-      <div class="header-sub">Quickwin 45 phút · 3 phần × 15 phút</div>
+      <div class="header-sub">Cẩm nang tư vấn sản phẩm</div>
     </div>
   </div>
   <div class="header-badge">✏️ P.NVĐT - TTDVKH · T5/2026</div>
@@ -952,23 +952,27 @@ footer a { color: var(--accent); }
 <nav class="tab-bar" id="tabBar">
   <button class="tab-btn active" data-target="s1" onclick="switchTab(this)">
     <span class="tab-num">1</span>
-    <span>📷 Tính năng Camera</span>
-    <span class="tab-min">· 15 phút</span>
+    <span>📷 Tính năng</span>
   </button>
   <button class="tab-btn" data-target="s2" onclick="switchTab(this)">
     <span class="tab-num">2</span>
     <span>💰 Gói cước</span>
-    <span class="tab-min">· 15 phút</span>
+  </button>
+  <button class="tab-btn" onclick="window.open('https://onehome.vnpt-technology.vn:2001/docs/onehome/app-install-tutorial','_blank','noopener')">
+    <span class="tab-num">3</span>
+    <span>📲 HDSD OneHome ↗</span>
   </button>
   <button class="tab-btn" data-target="s3" onclick="switchTab(this)">
-    <span class="tab-num">3</span>
-    <span>🔧 Công cụ hỗ trợ</span>
-    <span class="tab-min">· 15 phút</span>
+    <span class="tab-num">4</span>
+    <span>🛠️ Công cụ hỗ trợ</span>
+  </button>
+  <button class="tab-btn" data-target="s5" onclick="switchTab(this)">
+    <span class="tab-num">5</span>
+    <span>🎯 Ôn tập</span>
   </button>
   <button class="tab-btn" data-target="s4" onclick="switchTab(this)">
-    <span class="tab-num">4</span>
-    <span>🎯 Ôn tập</span>
-    <span class="tab-min">· Thực hành</span>
+    <span class="tab-num">6</span>
+    <span>📝 Trắc nghiệm</span>
   </button>
 </nav>
 
@@ -1339,175 +1343,37 @@ footer a { color: var(--accent); }
 
   <hr class="divider" />
 
-  <!-- BẢNG GIÁ ĐẦY ĐỦ INDOOR -->
-  <div class="section-heading">📷 Bảng giá Indoor đầy đủ</div>
-  <div class="card">
-    <table class="price-table">
-      <thead>
-        <tr>
-          <th>Tên gói</th>
-          <th>Nội dung</th>
-          <th>1 tháng</th>
-          <th>3 tháng</th>
-          <th>6 tháng</th>
-          <th>12–13 tháng</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="pt-name">Indoor + Thẻ 64G</td>
-          <td class="pt-content">01 IS310P + Thẻ nhớ 64GB</td>
-          <td class="pt-price">30.000</td>
-          <td class="pt-price">90.000</td>
-          <td class="pt-price">180.000</td>
-          <td class="pt-price">360.000</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Indoor + Cloud 7</td>
-          <td class="pt-content">01 IS310P + Cloud 7 ngày</td>
-          <td class="pt-price">40.000</td>
-          <td class="pt-price">120.000</td>
-          <td class="pt-price">240.000</td>
-          <td class="pt-price">480.000</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Indoor + Cloud 15</td>
-          <td class="pt-content">01 IS310P + Cloud 15 ngày</td>
-          <td class="pt-price">60.000</td>
-          <td class="pt-price">180.000</td>
-          <td class="pt-price">360.000</td>
-          <td class="pt-price">720.000</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Indoor + Cloud 30</td>
-          <td class="pt-content">01 IS310P + Cloud 30 ngày</td>
-          <td class="pt-price">90.000</td>
-          <td class="pt-price">270.000</td>
-          <td class="pt-price">540.000</td>
-          <td class="pt-price">1.080.000</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr><td colspan="6">💡 Giá đã bao gồm VAT · Chu kỳ 12 tháng = tặng thêm 1 tháng (dùng 13 tháng)</td></tr>
-      </tfoot>
-    </table>
+  <!-- BẢNG TỔNG HỢP ĐẦY ĐỦ -->
+  <div class="section-heading">📋 Bảng tổng hợp đầy đủ gói cước</div>
+  <div class="highlight-box">
+    <strong>💡 Tư vấn theo chi phí/ngày:</strong> Quy đổi cước tháng ra <strong>chi phí bình quân mỗi ngày</strong> để khách dễ đồng ý — Camera Indoor chỉ <strong>~1.000đ/ngày</strong>, bằng một cốc trà đá mà đổi lấy cả ngày an tâm.
   </div>
-
-  <!-- BẢNG GIÁ ĐẦY ĐỦ OUTDOOR -->
-  <div class="section-heading" style="margin-top:28px">🌿 Bảng giá Outdoor đầy đủ</div>
-  <div class="card">
+  <div class="card" style="overflow-x:auto">
     <table class="price-table">
       <thead>
         <tr>
-          <th>Tên gói</th>
-          <th>Nội dung</th>
-          <th>1 tháng</th>
-          <th>3 tháng</th>
-          <th>6 tháng</th>
-          <th>12–13 tháng</th>
+          <th>TT</th><th>Tên gói</th><th>Nội dung</th>
+          <th>1 tháng</th><th>3 tháng</th><th>6 tháng</th><th>12–13 tháng</th><th>BQ/ngày</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="pt-name">Outdoor + Thẻ 64G</td>
-          <td class="pt-content">01 ES311P + Thẻ nhớ 64GB</td>
-          <td class="pt-price">50.000</td>
-          <td class="pt-price">150.000</td>
-          <td class="pt-price">300.000</td>
-          <td class="pt-price">600.000</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Outdoor + Cloud 7</td>
-          <td class="pt-content">01 ES311P + Cloud 7 ngày</td>
-          <td class="pt-price">60.000</td>
-          <td class="pt-price">180.000</td>
-          <td class="pt-price">360.000</td>
-          <td class="pt-price">720.000</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Outdoor + Cloud 15</td>
-          <td class="pt-content">01 ES311P + Cloud 15 ngày</td>
-          <td class="pt-price">80.000</td>
-          <td class="pt-price">240.000</td>
-          <td class="pt-price">480.000</td>
-          <td class="pt-price">960.000</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Outdoor + Cloud 30</td>
-          <td class="pt-content">01 ES311P + Cloud 30 ngày</td>
-          <td class="pt-price">110.000</td>
-          <td class="pt-price">330.000</td>
-          <td class="pt-price">660.000</td>
-          <td class="pt-price">1.320.000</td>
-        </tr>
+        <tr><td>1</td><td class="pt-name">Pack 01 Cam</td><td class="pt-content">01 Indoor + Cloud 3 ngày</td><td class="pt-price">30.000</td><td class="pt-price">90.000</td><td class="pt-price">180.000</td><td class="pt-price">360.000</td><td class="c-hl">~1.000đ</td></tr>
+        <tr><td>2</td><td class="pt-name">Pack 03 Cam</td><td class="pt-content">03 Indoor + 03 Cloud 3 ngày</td><td class="pt-price">80.000</td><td class="pt-price">240.000</td><td class="pt-price">480.000</td><td class="pt-price">960.000</td><td class="c-hl">~2.500đ</td></tr>
+        <tr><td>3</td><td class="pt-name">Pack 05 Cam</td><td class="pt-content">05 Indoor + 05 Cloud 3 ngày</td><td class="pt-price">130.000</td><td class="pt-price">390.000</td><td class="pt-price">780.000</td><td class="pt-price">1.560.000</td><td class="c-hl">~4.000đ</td></tr>
+        <tr><td>4</td><td class="pt-name">Pack 10 Cam</td><td class="pt-content">10 Indoor + 10 Cloud 3 ngày</td><td class="pt-price">250.000</td><td class="pt-price">750.000</td><td class="pt-price">1.500.000</td><td class="pt-price">3.000.000</td><td class="c-hl">~8.000đ</td></tr>
+        <tr><td>5</td><td class="pt-name">Pack 01 Cam Out</td><td class="pt-content">01 Outdoor + Cloud 3 ngày</td><td class="pt-price">40.000</td><td class="pt-price">120.000</td><td class="pt-price">240.000</td><td class="pt-price">480.000</td><td class="c-hl">~1.200đ</td></tr>
+        <tr><td>6</td><td class="pt-name">Pack 1 In + 1 Out</td><td class="pt-content">01 Indoor + 01 Outdoor + 02 Cloud 3 ngày</td><td class="pt-price">66.000</td><td class="pt-price">198.000</td><td class="pt-price">396.000</td><td class="pt-price">792.000</td><td class="c-hl">~2.000đ</td></tr>
+        <tr><td>7</td><td class="pt-name">Cam IN thẻ nhớ 64GB</td><td class="pt-content">IS310P + thẻ nhớ 64GB</td><td class="pt-price">30.000</td><td class="pt-price">90.000</td><td class="pt-price">180.000</td><td class="pt-price">360.000</td><td class="c-hl">~1.000đ</td></tr>
+        <tr><td>8</td><td class="pt-name">Cam OUT thẻ nhớ 64GB</td><td class="pt-content">ES311P + thẻ nhớ 64GB</td><td class="pt-price">50.000</td><td class="pt-price">150.000</td><td class="pt-price">300.000</td><td class="pt-price">600.000</td><td class="c-hl">~1.500đ</td></tr>
+        <tr><td>9</td><td class="pt-name">Cam IN Cloud 7</td><td class="pt-content">Indoor + Cloud lưu 7 ngày</td><td class="pt-price">40.000</td><td class="pt-price">120.000</td><td class="pt-price">240.000</td><td class="pt-price">480.000</td><td class="c-hl">~1.200đ</td></tr>
+        <tr><td>10</td><td class="pt-name">Cam IN Cloud 15</td><td class="pt-content">Indoor + Cloud lưu 15 ngày</td><td class="pt-price">60.000</td><td class="pt-price">180.000</td><td class="pt-price">360.000</td><td class="pt-price">720.000</td><td class="c-hl">~2.000đ</td></tr>
+        <tr><td>11</td><td class="pt-name">Cam IN Cloud 30</td><td class="pt-content">Indoor + Cloud lưu 30 ngày</td><td class="pt-price">90.000</td><td class="pt-price">270.000</td><td class="pt-price">540.000</td><td class="pt-price">1.080.000</td><td class="c-hl">~2.800đ</td></tr>
+        <tr><td>12</td><td class="pt-name">Cam OUT Cloud 7</td><td class="pt-content">Outdoor + Cloud lưu 7 ngày</td><td class="pt-price">60.000</td><td class="pt-price">180.000</td><td class="pt-price">360.000</td><td class="pt-price">720.000</td><td class="c-hl">~2.000đ</td></tr>
+        <tr><td>13</td><td class="pt-name">Cam OUT Cloud 15</td><td class="pt-content">Outdoor + Cloud lưu 15 ngày</td><td class="pt-price">80.000</td><td class="pt-price">240.000</td><td class="pt-price">480.000</td><td class="pt-price">960.000</td><td class="c-hl">~2.500đ</td></tr>
+        <tr><td>14</td><td class="pt-name">Cam OUT Cloud 30</td><td class="pt-content">Outdoor + Cloud lưu 30 ngày</td><td class="pt-price">110.000</td><td class="pt-price">330.000</td><td class="pt-price">660.000</td><td class="pt-price">1.320.000</td><td class="c-hl">~3.400đ</td></tr>
       </tbody>
       <tfoot>
-        <tr><td colspan="6">💡 Giá đã bao gồm VAT · Chu kỳ 6 tháng = tặng thêm 1 tháng (dùng 7 tháng)</td></tr>
-      </tfoot>
-    </table>
-  </div>
-
-  <hr class="divider" />
-
-  <!-- PACK NHIỀU CAM -->
-  <div class="section-heading">📦 Gói Pack nhiều Camera (cho cửa hàng / văn phòng)</div>
-  <div class="card">
-    <table class="price-table">
-      <thead>
-        <tr>
-          <th>Gói</th>
-          <th>Nội dung</th>
-          <th>1 tháng</th>
-          <th>Giá / Cam</th>
-          <th>Tiết kiệm</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="pt-name">Pack 01 Indoor</td>
-          <td class="pt-content">01 Camera Indoor + Cloud 3 ngày</td>
-          <td class="pt-price">30.000</td>
-          <td>30.000đ/cam</td>
-          <td class="c-muted">—</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Pack 03 Indoor</td>
-          <td class="pt-content">03 Camera Indoor + Cloud 3 ngày</td>
-          <td class="pt-price">80.000</td>
-          <td class="c-hl">~26.700đ/cam</td>
-          <td class="c-yes">↓ 3.300đ/cam</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Pack 05 Indoor</td>
-          <td class="pt-content">05 Camera Indoor + Cloud 3 ngày</td>
-          <td class="pt-price">130.000</td>
-          <td class="c-hl">26.000đ/cam</td>
-          <td class="c-yes">↓ 4.000đ/cam</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Pack 10 Indoor</td>
-          <td class="pt-content">10 Camera Indoor + Cloud 3 ngày</td>
-          <td class="pt-price">250.000</td>
-          <td class="c-hl">25.000đ/cam</td>
-          <td class="c-yes">↓ 5.000đ/cam</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Pack 01 Outdoor</td>
-          <td class="pt-content">01 Camera Outdoor + Cloud 3 ngày</td>
-          <td class="pt-price">40.000</td>
-          <td>40.000đ/cam</td>
-          <td class="c-muted">—</td>
-        </tr>
-        <tr>
-          <td class="pt-name">Pack 1In + 1Out</td>
-          <td class="pt-content">01 Indoor + 01 Outdoor + 02 Cloud 3 ngày</td>
-          <td class="pt-price">66.000</td>
-          <td class="c-hl">33.000đ/cam</td>
-          <td class="c-yes">Tiết kiệm 14k</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr><td colspan="5">☁️ Cloud 3 ngày trong gói Pack: chỉ lưu khi có chuyển động bất thường, tối đa 3 ngày gần nhất</td></tr>
+        <tr><td colspan="8">💡 Giá đã gồm VAT · Gói dài kỳ = giá 1 tháng × số tháng · Cột <strong>BQ/ngày</strong> = chi phí bình quân mỗi ngày, dùng để tư vấn nhanh · Gói mua đứt (TTN) xem bên dưới.</td></tr>
       </tfoot>
     </table>
   </div>
@@ -1575,7 +1441,7 @@ footer a { color: var(--accent); }
 <section id="s3" class="section">
 
   <!-- TOOL 1: BÁO GIÁ -->
-  <div class="section-heading">🧾 Công cụ 1: Tạo Báo Giá</div>
+  <div class="section-heading">🧾 4.1 · App báo giá</div>
   <div class="tool-card">
     <div class="tool-header blue-bg">
       <div class="tool-icon-wrap">🧾</div>
@@ -1631,14 +1497,14 @@ footer a { color: var(--accent); }
         </div>
       </div>
 
-      <a class="tool-open-btn" href="https://baogiacamera.netlify.app/" target="_blank" rel="noopener">
+      <a class="tool-open-btn" href="https://ttdvkhbaogia.netlify.app/" target="_blank" rel="noopener">
         🧾 Mở Công cụ Báo Giá →
       </a>
     </div>
   </div>
 
   <!-- TOOL 2: KỊCH BẢN -->
-  <div class="section-heading" style="margin-top:32px">📞 Công cụ 2: Kịch bản Outbound Telesale</div>
+  <div class="section-heading" style="margin-top:32px">📞 4.2 · App Kịch bản OB</div>
   <div class="tool-card">
     <div class="tool-header green-bg">
       <div class="tool-icon-wrap">📞</div>
@@ -1745,7 +1611,7 @@ footer a { color: var(--accent); }
         </tr>
         <tr>
           <td>KH đồng ý nghe, cần báo giá ngay</td>
-          <td><a href="https://baogiacamera.netlify.app/" target="_blank">🧾 baogiacamera.netlify.app</a></td>
+          <td><a href="https://ttdvkhbaogia.netlify.app/" target="_blank">🧾 ttdvkhbaogia.netlify.app</a></td>
           <td>Tạo ảnh PNG → gửi Zalo trong lúc gọi</td>
         </tr>
         <tr>
@@ -1780,7 +1646,7 @@ footer a { color: var(--accent); }
     </li>
     <li>
       <span class="tip-icon">📸</span>
-      <span><strong>Gửi báo giá ngay trong cuộc gọi:</strong> Tạo ảnh PNG từ baogiacamera.netlify.app và gửi Zalo khi đang nói chuyện — tăng tỉ lệ chốt sau cuộc gọi rõ rệt.</span>
+      <span><strong>Gửi báo giá ngay trong cuộc gọi:</strong> Tạo ảnh PNG từ ttdvkhbaogia.netlify.app và gửi Zalo khi đang nói chuyện — tăng tỉ lệ chốt sau cuộc gọi rõ rệt.</span>
     </li>
     <li>
       <span class="tip-icon">🎤</span>
@@ -1796,7 +1662,141 @@ footer a { color: var(--accent); }
     </li>
   </ul>
 
+  <!-- 4.3 ĐỐI TƯỢNG KHÁCH HÀNG -->
+  <hr class="divider" />
+  <div class="section-heading">👥 4.3 · Đối tượng khách hàng</div>
+  <div class="info-box">Nhận diện đúng nhóm khách để chọn đúng sản phẩm tư vấn. Lời chào &amp; kịch bản chi tiết cho từng nhóm xem ở tab <strong>Ôn tập · mục 5.3</strong>.</div>
+  <div class="card-grid-3">
+    <div class="tier-card tier-1">
+      <div class="tier-label">Nhóm 1</div>
+      <div class="tier-name">👨‍👩‍👧 Gia đình trẻ có con nhỏ</div>
+      <ul class="tier-list">
+        <li>🎯 Nhu cầu: trông con, nhắc con học, nói chuyện từ xa</li>
+        <li>📷 Đề xuất: Camera Indoor (xoay 360°, đàm thoại 2 chiều)</li>
+        <li>🔒 Điểm nhấn: Cloud VNPT bảo mật, không lo lộ hình</li>
+      </ul>
+    </div>
+    <div class="tier-card tier-2">
+      <div class="tier-label">Nhóm 2</div>
+      <div class="tier-name">🏡 Nhà phố có sân, cổng, gara</div>
+      <ul class="tier-list">
+        <li>🎯 Nhu cầu: chống trộm, canh cổng/sân khi đi vắng</li>
+        <li>🌿 Đề xuất: Camera Outdoor (IP66, hồng ngoại đêm có màu)</li>
+        <li>🚨 Điểm nhấn: cảnh báo người lạ, Cloud giữ bằng chứng</li>
+      </ul>
+    </div>
+    <div class="tier-card tier-3">
+      <div class="tier-label">Nhóm 3</div>
+      <div class="tier-name">👵 Con cái mua cho bố/mẹ ở xa</div>
+      <ul class="tier-list">
+        <li>🎯 Nhu cầu: theo dõi sức khỏe, phòng té ngã, nhắc uống thuốc</li>
+        <li>📷 Đề xuất: Camera Indoor + Cloud (đàm thoại 2 chiều)</li>
+        <li>❤️ Điểm nhấn: ở xa vẫn thấy bố mẹ mỗi ngày, xử lý kịp thời</li>
+      </ul>
+    </div>
+  </div>
+
 </section><!-- /s3 -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 5: ÔN TẬP
+     ══════════════════════════════════════════════════════════ -->
+<section id="s5" class="section">
+
+  <div class="section-heading">🎯 Ôn tập</div>
+
+  <!-- 5.1 TÍNH NĂNG -->
+  <div class="sub-heading">5.1 · Tính năng</div>
+  <div class="card">
+    <table class="compare-table">
+      <thead><tr><th>Hạng mục</th><th>🏠 Indoor IS310P</th><th>🌿 Outdoor ES311P</th></tr></thead>
+      <tbody>
+        <tr><td class="label-col">Độ phân giải</td><td>2K (2304×1296)</td><td>2K (2304×1296)</td></tr>
+        <tr><td class="label-col">Hồng ngoại</td><td>10 mét</td><td class="c-hl">30 mét</td></tr>
+        <tr><td class="label-col">Xoay</td><td class="c-hl">Pan 350° / Tilt 100°</td><td>Cố định</td></tr>
+        <tr><td class="label-col">Chống nước</td><td class="c-no">Không</td><td class="c-yes">IP66</td></tr>
+        <tr><td class="label-col">Kết nối</td><td>Wi-Fi</td><td class="c-hl">Wi-Fi + LAN RJ45</td></tr>
+        <tr><td class="label-col">AI</td><td>Motion Tracking, Human Detection, âm thanh</td><td>Phát hiện người</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-item"><div class="feat-icon">📱</div><div class="feat-name">App OneHome</div><div class="feat-desc">Xem trực tiếp, phát lại, thông báo kèm ảnh, chia sẻ 4 tài khoản, Smart Home</div></div>
+    <div class="feat-item"><div class="feat-icon">🇻🇳</div><div class="feat-name">Cloud nội địa</div><div class="feat-desc">Server tại VN, mã hóa TLS, IDC Tier 3 — chủ quyền dữ liệu</div></div>
+    <div class="feat-item"><div class="feat-icon">🛡️</div><div class="feat-name">Dịch vụ trọn gói</div><div class="feat-desc">Lắp đặt miễn phí, bảo hành trọn đời (gói thuê bao), hỗ trợ tại nhà</div></div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- 5.2 GÓI CƯỚC -->
+  <div class="sub-heading">5.2 · Gói cước (bình quân theo ngày)</div>
+  <div class="card" style="overflow-x:auto">
+    <table class="price-table">
+      <thead><tr><th>Gói cước</th><th>Nội dung</th><th>Cước tháng</th><th>BQ/ngày</th></tr></thead>
+      <tbody>
+        <tr><td class="pt-name">Cam IN thẻ nhớ 64GB</td><td class="pt-content">Indoor + thẻ 64GB</td><td class="pt-price">30.000đ</td><td class="c-hl">~1.000đ</td></tr>
+        <tr><td class="pt-name">Cam IN Cloud 7</td><td class="pt-content">Indoor + Cloud 7 ngày</td><td class="pt-price">40.000đ</td><td class="c-hl">~1.200đ</td></tr>
+        <tr><td class="pt-name">Cam IN Cloud 15</td><td class="pt-content">Indoor + Cloud 15 ngày</td><td class="pt-price">60.000đ</td><td class="c-hl">~2.000đ</td></tr>
+        <tr><td class="pt-name">Cam IN Cloud 30</td><td class="pt-content">Indoor + Cloud 30 ngày</td><td class="pt-price">90.000đ</td><td class="c-hl">~2.800đ</td></tr>
+        <tr><td class="pt-name">Cam OUT thẻ nhớ 64GB</td><td class="pt-content">Outdoor + thẻ 64GB</td><td class="pt-price">50.000đ</td><td class="c-hl">~1.500đ</td></tr>
+        <tr><td class="pt-name">Cam OUT Cloud 7</td><td class="pt-content">Outdoor + Cloud 7 ngày</td><td class="pt-price">60.000đ</td><td class="c-hl">~2.000đ</td></tr>
+        <tr><td class="pt-name">Cam OUT Cloud 15</td><td class="pt-content">Outdoor + Cloud 15 ngày</td><td class="pt-price">80.000đ</td><td class="c-hl">~2.500đ</td></tr>
+        <tr><td class="pt-name">Cam OUT Cloud 30</td><td class="pt-content">Outdoor + Cloud 30 ngày</td><td class="pt-price">110.000đ</td><td class="c-hl">~3.400đ</td></tr>
+        <tr><td class="pt-name">Pack 1 In + 1 Out</td><td class="pt-content">1 Indoor + 1 Outdoor + 2 Cloud 3 ngày</td><td class="pt-price">66.000đ</td><td class="c-hl">~2.000đ</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="4">Mua đứt (TTN): Indoor 646.000đ · Outdoor 946.000đ · Đầu ghi WN883P 1.870.000đ. Bảng đầy đủ xem tab "Gói cước".</td></tr></tfoot>
+    </table>
+  </div>
+  <div class="highlight-box"><strong>💡 Mẹo chốt:</strong> Luôn quy đổi ra <strong>chi phí/ngày</strong> — "chỉ ~1.000đ/ngày để mang an tâm về nhà" — khách dễ đồng ý hơn nhiều so với nói "30.000đ/tháng".</div>
+
+  <hr class="divider" />
+
+  <!-- 5.3 NHÓM KH & KỊCH BẢN TƯ VẤN -->
+  <div class="sub-heading">5.3 · Các nhóm khách hàng &amp; kịch bản tư vấn</div>
+
+  <div class="cam-block">
+    <div class="cam-header indoor">
+      <div class="cam-icon">👨‍👩‍👧</div>
+      <div class="cam-header-info"><h3>Nhóm 1 — Gia đình trẻ có con nhỏ</h3><p>Đề xuất: Camera Indoor</p></div>
+    </div>
+    <div class="cam-body">
+      <div class="script-quote">
+        <div class="script-label">💬 Kịch bản tư vấn</div>
+        <div class="script-text">"Dạ, mấy bé nhà mình đi học về có tự giác ăn uống, học bài không Anh/Chị? Nhiều gia đình lắp camera trong nhà xong nhẹ hẳn — đang ở cơ quan nhớ con hay muốn nhắc con học bài, chỉ cần mở app OneHome bấm nút nói chuyện trực tiếp với con, rất tiện. Hình ảnh lưu trên Cloud VNPT bảo mật nên Anh/Chị yên tâm không lo lộ ra ngoài. Em lo trọn gói từ A–Z, kỹ thuật qua lắp tận nơi cho mình ạ."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cam-block">
+    <div class="cam-header outdoor">
+      <div class="cam-icon">🏡</div>
+      <div class="cam-header-info"><h3>Nhóm 2 — Nhà phố có sân, cổng, gara</h3><p>Đề xuất: Camera Outdoor</p></div>
+    </div>
+    <div class="cam-body">
+      <div class="script-quote">
+        <div class="script-label">💬 Kịch bản tư vấn</div>
+        <div class="script-text">"Dạ khu mình ban ngày mọi người đi làm hết, nhà vắng cũng hơi lo Anh/Chị nhỉ. VNPT có dòng camera ngoài trời rất thông minh — ban đêm xem vẫn có màu, nét căng; có người lạ lởn vởn trước cửa là tự hú còi, nháy đèn cảnh báo. Hình ảnh lưu trên Cloud VNPT nên kể cả kẻ gian đập camera thì bằng chứng vẫn còn. Anh/Chị lắp một cái trước cửa cho an tâm, em cho kỹ thuật qua canh góc đẹp nhất cho nhà mình ạ."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cam-block">
+    <div class="cam-header indoor">
+      <div class="cam-icon">👵</div>
+      <div class="cam-header-info"><h3>Nhóm 3 — Con cái mua cho bố/mẹ ở xa</h3><p>Đề xuất: Camera Indoor + Cloud</p></div>
+    </div>
+    <div class="cam-body">
+      <div class="script-quote">
+        <div class="script-label">💬 Kịch bản tư vấn</div>
+        <div class="script-text">"Dạ dạo này sức khỏe ông bà ở quê sao rồi Anh/Chị? Mình đi làm xa cả ngày, ông bà ở nhà tự chăm nhau cũng hay lo — sợ các cụ trượt ngã hay quên uống thuốc mà mình không biết. Có dòng Camera Cloud VNPT rất hợp: lắp ở gian chính, giữa trưa hay tối Anh/Chị mở điện thoại là thấy các cụ đang làm gì, bấm nút nói chuyện hỏi thăm trực tiếp như đang ngồi cạnh. Lắp một cái cho ông bà để mình ở xa vẫn nhìn thấy các cụ mỗi ngày, có việc gì là biết ngay để xử lý kịp thời ạ."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box"><strong>📌 Lưu ý:</strong> Kịch bản hướng tới <strong>Anh/Chị khách hàng</strong>, tập trung vào lợi ích &amp; cảm xúc; không dùng từ ngữ nội bộ (tổng đài, OB, chỉ tiêu chiến dịch…) khi nói chuyện với khách.</div>
+
+</section><!-- /s5 -->
 
 <!-- ══════════════════════════════════════════════════════════
      SECTION 4: ÔN TẬP & THỰC HÀNH
@@ -1914,7 +1914,7 @@ footer a { color: var(--accent); }
     <div>P.NVĐT - TTDVKH · Nội bộ VNPT · T5/2026</div>
   </div>
   <div class="footer-links">
-    <a href="https://baogiacamera.netlify.app/" target="_blank" rel="noopener">🧾 Tạo Báo Giá</a>
+    <a href="https://ttdvkhbaogia.netlify.app/" target="_blank" rel="noopener">🧾 Tạo Báo Giá</a>
     <a href="https://obcamera.netlify.app/" target="_blank" rel="noopener">📞 Kịch bản Outbound</a>
   </div>
   <div class="footer-hotline">📞 18001166</div>
@@ -2180,8 +2180,8 @@ const QUESTIONS = [
 /* ── NHÓM C: CÔNG CỤ & QUY TRÌNH (20 câu) ───────────── */
 {id:56,cat:'C',catLabel:'Công cụ',type:'MC',
  q:'Địa chỉ website công cụ tạo báo giá gửi khách hàng là gì?',
- opts:['priceCamera.vnpt.vn','baogiacamera.netlify.app','quotecam.netlify.app','baogiacam.vnpt.com.vn'],ans:1,
- explain:'baogiacamera.netlify.app — công cụ tạo ảnh báo giá PNG 9:16 chuẩn Zalo, không cần đăng nhập.'},
+ opts:['priceCamera.vnpt.vn','ttdvkhbaogia.netlify.app','quotecam.netlify.app','baogiacam.vnpt.com.vn'],ans:1,
+ explain:'ttdvkhbaogia.netlify.app — công cụ tạo ảnh báo giá PNG 9:16 chuẩn Zalo, không cần đăng nhập.'},
 {id:57,cat:'C',catLabel:'Công cụ',type:'MC',
  q:'Địa chỉ website kịch bản outbound telesale là gì?',
  opts:['script.vnpt.vn','kichban.netlify.app','obcamera.netlify.app','callscript.vnpt.vn'],ans:2,
@@ -2241,8 +2241,8 @@ const QUESTIONS = [
 /* TH group C */
 {id:71,cat:'C',catLabel:'Công cụ',type:'TH',
  q:'KH hỏi: "Tôi muốn gửi báo giá camera cho khách qua Zalo, làm thế nào?" ĐTV hướng dẫn ra sao?',
- opts:['Gửi danh sách giá bằng tin nhắn text thủ công','Vào baogiacamera.netlify.app, chọn gói và tải xuống ảnh PNG 9:16','Chụp màn hình bảng giá từ file Excel','Gửi link website VNPT chính thức cho KH tự xem'],ans:1,
- explain:'baogiacamera.netlify.app tạo ảnh chuyên nghiệp, gửi Zalo hiển thị đẹp, KH xem dễ hơn nhiều so với text.'},
+ opts:['Gửi danh sách giá bằng tin nhắn text thủ công','Vào ttdvkhbaogia.netlify.app, chọn gói và tải xuống ảnh PNG 9:16','Chụp màn hình bảng giá từ file Excel','Gửi link website VNPT chính thức cho KH tự xem'],ans:1,
+ explain:'ttdvkhbaogia.netlify.app tạo ảnh chuyên nghiệp, gửi Zalo hiển thị đẹp, KH xem dễ hơn nhiều so với text.'},
 {id:72,cat:'C',catLabel:'Công cụ',type:'TH',
  q:'Trước khi thực hiện cuộc gọi outbound, ĐTV nên chuẩn bị gì?',
  opts:['Không cần chuẩn bị gì đặc biệt','Đọc lại kịch bản 5 giai đoạn ở obcamera.netlify.app + chuẩn bị ảnh báo giá sẵn','Chỉ cần tên và số điện thoại KH là đủ','Chuẩn bị file hợp đồng in sẵn'],ans:1,
