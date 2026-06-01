@@ -1497,6 +1497,38 @@ footer a { color: var(--accent); }
      ══════════════════════════════════════════════════════════ -->
 <section id="s3" class="section">
 
+  <!-- 4 SHORTCUT ICONS -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px">
+    <a href="https://ttdvkhbaogia.netlify.app/" target="_blank" rel="noopener" style="text-decoration:none">
+      <div style="background:var(--card);border-radius:var(--radius);padding:20px 12px;box-shadow:var(--shadow);text-align:center;border-top:4px solid var(--accent);transition:box-shadow .2s" onmouseover="this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.boxShadow='var(--shadow)'">
+        <div style="font-size:32px;margin-bottom:8px">🧾</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy)">App báo giá</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">ttdvkhbaogia</div>
+      </div>
+    </a>
+    <a href="https://heyzine.com/flip-book/d4520cecd5.html" target="_blank" rel="noopener" style="text-decoration:none">
+      <div style="background:var(--card);border-radius:var(--radius);padding:20px 12px;box-shadow:var(--shadow);text-align:center;border-top:4px solid var(--orange);transition:box-shadow .2s" onmouseover="this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.boxShadow='var(--shadow)'">
+        <div style="font-size:32px;margin-bottom:8px">📖</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy)">Flipbook trực tuyến</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">heyzine.com</div>
+      </div>
+    </a>
+    <a href="#kh-tiem-nang" onclick="event.preventDefault();document.getElementById('kh-tiem-nang').scrollIntoView({behavior:'smooth',block:'start'})" style="text-decoration:none">
+      <div style="background:var(--card);border-radius:var(--radius);padding:20px 12px;box-shadow:var(--shadow);text-align:center;border-top:4px solid var(--green);transition:box-shadow .2s" onmouseover="this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.boxShadow='var(--shadow)'">
+        <div style="font-size:32px;margin-bottom:8px">👥</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy)">Nhóm KH tiềm năng</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">5 nhóm ưu tiên</div>
+      </div>
+    </a>
+    <a href="https://obcamera.netlify.app/" target="_blank" rel="noopener" style="text-decoration:none">
+      <div style="background:var(--card);border-radius:var(--radius);padding:20px 12px;box-shadow:var(--shadow);text-align:center;border-top:4px solid var(--blue);transition:box-shadow .2s" onmouseover="this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.boxShadow='var(--shadow)'">
+        <div style="font-size:32px;margin-bottom:8px">📞</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy)">App Kịch bản OB</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">obcamera</div>
+      </div>
+    </a>
+  </div>
+
   <!-- TOOL 1: BÁO GIÁ -->
   <div class="section-heading">🧾 4.1 · App báo giá</div>
   <div class="tool-card">
@@ -1719,38 +1751,58 @@ footer a { color: var(--accent); }
     </li>
   </ul>
 
-  <!-- 4.3 ĐỐI TƯỢNG KHÁCH HÀNG -->
+  <!-- 4.3 NHÓM KH TIỀM NĂNG -->
   <hr class="divider" />
-  <div class="section-heading">👥 4.3 · Đối tượng khách hàng</div>
-  <div class="info-box">Nhận diện đúng nhóm khách để chọn đúng sản phẩm tư vấn. Lời chào &amp; kịch bản chi tiết cho từng nhóm xem ở tab <strong>Cẩm Nang Điện Tử · mục 5.3</strong>.</div>
-  <div class="card-grid-3">
-    <div class="tier-card tier-1">
-      <div class="tier-label">Nhóm 1</div>
-      <div class="tier-name">👨‍👩‍👧 Gia đình trẻ có con nhỏ</div>
-      <ul class="tier-list">
-        <li>🎯 Nhu cầu: trông con, nhắc con học, nói chuyện từ xa</li>
-        <li>📷 Đề xuất: Camera Indoor (xoay 360°, đàm thoại 2 chiều)</li>
-        <li>🔒 Điểm nhấn: Cloud VNPT bảo mật, không lo lộ hình</li>
-      </ul>
+  <div id="kh-tiem-nang" class="section-heading">👥 4.3 · Nhóm khách hàng tiềm năng</div>
+  <div class="info-box">Ưu tiên khách hàng đang dùng <strong>FiberVNN chưa có Camera</strong>. Nhận diện đúng nhóm → đề xuất đúng sản phẩm.</div>
+
+  <div style="display:flex;flex-direction:column;gap:10px;margin:16px 0">
+
+    <div style="background:var(--card);border-radius:var(--radius-sm);padding:16px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:16px">
+      <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px">👨‍👩‍👧 Gia đình trẻ có con nhỏ</div>
+        <div style="font-size:12px;color:var(--muted)">Con nhỏ / người giúp việc / ông bà trông cháu; nhà vắng ban ngày</div>
+      </div>
+      <div style="background:#e0f2fe;color:#0369a1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap">Indoor</div>
     </div>
-    <div class="tier-card tier-2">
-      <div class="tier-label">Nhóm 2</div>
-      <div class="tier-name">🏡 Nhà phố có sân, cổng, gara</div>
-      <ul class="tier-list">
-        <li>🎯 Nhu cầu: chống trộm, canh cổng/sân khi đi vắng</li>
-        <li>🌿 Đề xuất: Camera Outdoor (IP66, hồng ngoại đêm có màu)</li>
-        <li>🚨 Điểm nhấn: cảnh báo người lạ, Cloud giữ bằng chứng</li>
-      </ul>
+
+    <div style="background:var(--card);border-radius:var(--radius-sm);padding:16px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:16px">
+      <div style="width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px">🏠 Nhà phố có sân, cổng, gara</div>
+        <div style="font-size:12px;color:var(--muted)">Xe máy/ô tô để ngoài; cổng riêng; ra vào nhiều khung giờ</div>
+      </div>
+      <div style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap">Outdoor</div>
     </div>
-    <div class="tier-card tier-3">
-      <div class="tier-label">Nhóm 3</div>
-      <div class="tier-name">👵 Con cái mua cho bố/mẹ ở xa</div>
-      <ul class="tier-list">
-        <li>🎯 Nhu cầu: theo dõi sức khỏe, phòng té ngã, nhắc uống thuốc</li>
-        <li>📷 Đề xuất: Camera Indoor + Cloud (đàm thoại 2 chiều)</li>
-        <li>❤️ Điểm nhấn: ở xa vẫn thấy bố mẹ mỗi ngày, xử lý kịp thời</li>
-      </ul>
+
+    <div style="background:var(--card);border-radius:var(--radius-sm);padding:16px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:16px">
+      <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px">🏪 Hộ kinh doanh tại gia</div>
+        <div style="font-size:12px;color:var(--muted)">Shop nhỏ, cần theo dõi quầy/khách; mở cửa dài giờ</div>
+      </div>
+      <div style="background:#fff4ee;color:var(--orange);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap">Indoor + Outdoor</div>
     </div>
+
+    <div style="background:var(--card);border-radius:var(--radius-sm);padding:16px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:16px">
+      <div style="width:36px;height:36px;border-radius:50%;background:#7c3aed;color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">4</div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px">✈️ Người thường xuyên vắng nhà</div>
+        <div style="font-size:12px;color:var(--muted)">Đi công tác nhiều; nhà ít người; cần xem nhanh trên điện thoại</div>
+      </div>
+      <div style="background:#fff4ee;color:var(--orange);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap">Indoor + Outdoor</div>
+    </div>
+
+    <div style="background:var(--card);border-radius:var(--radius-sm);padding:16px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:16px">
+      <div style="width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">5</div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px">👵 Con cái mua cho bố/mẹ ở xa</div>
+        <div style="font-size:12px;color:var(--muted)">Bố/mẹ sống một mình; con không ở cùng; nhu cầu "nhìn thấy để yên tâm"</div>
+      </div>
+      <div style="background:#e0f2fe;color:#0369a1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap">Indoor</div>
+    </div>
+
   </div>
 
 </section><!-- /s3 -->
@@ -1762,6 +1814,23 @@ footer a { color: var(--accent); }
 <section id="s5" class="section">
 
   <div class="section-heading">📖 Cẩm Nang Điện Tử</div>
+
+  <div class="tool-card" style="margin-bottom:28px">
+    <div class="tool-header blue-bg">
+      <div class="tool-icon-wrap">📋</div>
+      <div class="tool-header-info">
+        <h3>Phụ lục — Tài liệu tổng hợp</h3>
+        <p>Bảng tra cứu nhanh gói cước, kịch bản và tài liệu hỗ trợ tư vấn</p>
+      </div>
+    </div>
+    <div class="tool-body">
+      <a href="https://docs.google.com/spreadsheets/d/1snn4fLOoNjJaOQrphtOs4htVCovL1VUMEOofJuE_5pg/edit?gid=690860779#gid=690860779" target="_blank" rel="noopener" class="tool-open-btn">
+        📋 Mở Phụ lục →
+      </a>
+    </div>
+  </div>
+
+  <hr class="divider" />
 
   <!-- 5.1 TÍNH NĂNG -->
   <div class="sub-heading">5.1 · Tính năng</div>
@@ -1868,23 +1937,6 @@ footer a { color: var(--accent); }
 
   <div class="info-box"><strong>📌 Lưu ý:</strong> Kịch bản hướng tới <strong>Anh/Chị khách hàng</strong>, tập trung vào lợi ích &amp; cảm xúc; không dùng từ ngữ nội bộ (tổng đài, OB, chỉ tiêu chiến dịch…) khi nói chuyện với khách.</div>
 
-  <hr class="divider" />
-
-  <div class="sub-heading">📋 Phụ lục</div>
-  <div class="tool-card">
-    <div class="tool-header blue-bg">
-      <div class="tool-icon-wrap">📋</div>
-      <div class="tool-header-info">
-        <h3>Phụ lục — Tài liệu tổng hợp</h3>
-        <p>Bảng tra cứu nhanh gói cước, kịch bản và tài liệu hỗ trợ tư vấn</p>
-      </div>
-    </div>
-    <div class="tool-body">
-      <a href="https://docs.google.com/spreadsheets/d/1snn4fLOoNjJaOQrphtOs4htVCovL1VUMEOofJuE_5pg/edit?gid=690860779#gid=690860779" target="_blank" rel="noopener" class="tool-open-btn">
-        📋 Mở Phụ lục →
-      </a>
-    </div>
-  </div>
 
 </section><!-- /s5 -->
 
